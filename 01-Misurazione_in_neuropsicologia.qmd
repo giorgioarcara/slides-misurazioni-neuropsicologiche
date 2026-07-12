@@ -1,0 +1,716 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \usepackage{tikz}
+  \usetikzlibrary{positioning, arrows.meta}
+  \setbeamertemplate{footline}[frame number]
+
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+% TITLE SLIDES
+\title{Misure Neuropsicologiche\\ \vspace{1em} \emph{1. Misurazione in neuropsicologia}}
+\author{Giorgio Arcara,\\ Università di Padova \\ IRCCS San Camillo, Venezia}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+:::
+
+# Misurazione
+
+## Misurazione
+
+_“We may say that measurement, in the broadest sense, is defined as the assignment of numerals to objects or event, according to rules.”_
+
+*Stevens (1946)*
+\pause
+\vspace{2em}
+
+Questa è una definizione estremamente popolare che tuttora domina la neuropsicologia
+
+## Scale di misura secondo Stevens
+
+:::{.small}
+\scriptsize
+Per stevens, quello che è importante è definire poi quale è la scala di misura, che mette in relazione oggetti con i numeri.
+
+\tiny
+| Scala        | Descrizione                                                                 | Esempio                         | Operazioni possibili                                   |
+|--------------|------------------------------------------------------------------------------|---------------------------------|--------------------------------------------------------|
+| **Nominale** | Classificazione in categorie senza ordine implicito                         | Sesso (M/F), Colori, Nazionalità | Conteggio, moda, verifica uguaglianza/differenza      |
+| **Ordinale** | Classificazione con ordine, ma le distanza tra categorie non hanno significato   | Posizione in una classifica, Titolo di studio | Ordinamento, mediane, percentili                     |
+| **Intervallo** | Misura con ordine e intervalli uguali, ma senza zero assoluto significativo | Temperatura in °C, IQ           | Addizione, Sottrazione,Media, Deviazione standard, z-score                |
+| **Rapporto** | Misura con ordine, intervalli uguali e lo zero ha un significato          |  Età, Scolarità in anni, tempi di reazione | Tutte le operazioni aritmetiche (×, ÷, +, −), z-score, rapporti|
+
+**Legenda**
+- *Scala*: tipo di misura secondo la classificazione di Stevens.
+- *Descrizione*: caratteristiche principali della scala.
+- *Esempio*: variabili reali che rientrano in quella scala.
+- *Operazioni possibili*: trasformazioni matematiche e statistiche consentite dai dati.
+:::
+
+
+## Considerazioni su definizione di Stevens
+
+```{=latex}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{figure}
+    \includegraphics[scale=0.1]{Figures/MoCA-Test-Italian.png}
+    \end{figure}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    \textbf{Esaminiamo il MoCa:}
+    \pause
+    \vspace{2em}
+
+    Cosa notate nei punteggi delle parti che lo compongono?
+
+    \vspace{2em}
+    Cosa notate nei compiti?
+  \end{column}
+\end{columns}
+```
+
+## Considerazioni sulla definizione di Stevens 1/2
+
+Supponiamo di avere un tavolo quadrato che abbia il lato di 40 cm, mentre un’altro tavolo abbia il lato di 42 cm.
+Concludereste che il primo tavolo è lungo 2 cm più dell'altro? (il cm è qui usata come unità di misura)
+\pause
+
+Supponiamo che ad un test di memoria una persona ottenga 40, mentre un’altra 42,
+vi sentireste di concludere che quella persona ha due unità di misura (di memoria) in più dell'altra?
+\pause
+o semplicemente che ha più memoria?
+
+
+## Considerazioni sulla definizione di Stevens 2/2
+Nell'esempio appena utilizzato, inoltre, nel test di memoria, la variazione in punti sembra essere molto legata allo strumento utilizzato per valutare la memoria. Ogni test ha punteggi ottenibili diversi (es. il MoCA da 0 a 30, GEMS, un altro test per funzionamento cognitivo generale da 0 a 100).
+
+\pause
+
+**in questi esempi "+2" potrebbe avere significati molto diversi.**
+
+
+## Misurazione e neuropsicologia
+La misurazione in neuropsicologia clinica praticamente sempre _assume_ che ci sia una misura in **scala ad intervalli**. Ma, ad un'analisi approfondita, spesso sembrerebbe più appropriata una **scala ordinale**.
+
+
+## Misurazione e neuropsicologia
+
+Nella scala ordinale si assume che sia solo possibile ordinare valori dal più alto al più basso ma non che si possano fare altre operazioni.
+
+Nella scala ad intervalli si assume siano possibili operazioni come somma, sottrazione e ogni intervallo ha lo stesso significato (indipendentemente dal valore di partenza o dal range della scala). (Un'analogia è i gradi Celsius).
+
+
+## Misurazione e arbitrarietà della misura
+
+L'esempio mostrato sopra illustra come nei test neuropsicologici la scala arbitraria sembra essere critico.
+Immaginate due test di memoria: uno ha un punteggio da 0 a 50 Un altro da 0 a 10. In entrambi i casi il valore +2 ha un significato potenzialmente diverso.
+
+Un modo per "aggirare" questo problema (di scala arbitraria) è quello di riportare ad altre scale comparabili, come la deviazione standard oppure la percentuale di persone che ottengono quel punteggio. Queste due possibilità saranno trattate nelle lezioni su "dati normativi" e su "confrontare punteggi a test diversi".
+
+## Un'altra possibile definizione di misurazione da filosofia e fisica
+
+Non si misurano oggetti ma \emph{proprietà} di oggetti:
+
+"Sia $O$ un certo insieme di oggetti caratterizzati dall’avere la proprietà P e sia $\mathbb{R}$ l’insieme dei numeri Reali i quali possono essere ordinati in accordo al criterio “essere maggiore o uguale a”, si definisce misurazione:
+
+Chiamiamo $O_p$ l’insieme di oggetti tali che si crei un “omomorfismo” tra $(O_p, \succcurlyeq)$ e $(\mathbb{R}, \geq)$.
+
+Dove $\succcurlyeq$ indicano \emph{relazioni d’ordine empirico} (oggetti fisici) e $\geq$ \emph{relazioni d’ordine numerico}"
+
+\begin{flushright}
+\emph{Boniolo e Vidali, Filosofia della scienza, p. 321}
+\end{flushright}
+
+## Considerazioni conclusive su misurazione 1/2
+Queste considerazioni mostrano come un atto così semplice e naturale (come ottenere e utilizzare un punteggio), nasconde delle riflessioni che meritano approfondimento e che hanno influenza sul signigicato che assumeranno questi punteggi.
+
+La definizione di misurazione che usiamo è un po' più permissiva rispetto a definizioni più rigide (es. quella usata fisica riportata nella slide precedente) e lascia aperte alcune riflessioni.
+
+## Considerazioni conclusive su misurazione 2/2
+
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+\textbf{L'aspetto da ricordare è che nei test neuropsicologici, il più delle volte in maniera implicita, è assunta la definizione di misurazione di Stevens e che sia possibile assumere una misura in una scala ad intervalli.}
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+
+
+
+## Oggettività
+
+Un concetto che emerge spesso quando si parla di misurazione, di test, di statistica è quello di oggettività.
+\pause
+I test infatti vengo spesso considerati più “oggettivi”. Vale la pena quindi approfondire questo concetto.
+
+\pause
+\vfill
+
+Definiamo qui oggettività come una proprietà che si applica ad una valutazione, ad un test, o come *l’indipedenza dell’esaminatore dal risultato*
+
+## Oggettività
+
+\footnotesize"L’esame neuropsicologico viene spesso considerato un esame oggettivo del funzionamento cognitivo. In un’ideale gerarchia delle sorgenti d’evidenza, tale esame si collocherebbe molto più in alto rispetto alle evidenze cliniche più o meno sofisticate (self-reports, informant-based reports, interviste cliniche, rating scales, ecc.), e dovrebbe pertanto essere “promosso” a rango più elevato (al pari degli esami biochimici, radiologici, ecc.). Dopo che il clinico ha esaminato il soggetto e ha formulato le sua ipotesi preliminari, chiede agli esami strumentali di confermarle, confutarle o correggerle attraverso dati oggettivi, indipendenti sia dal giudizio dell’esaminatore e dalle sue distorsioni, sia da ogni variabile estranea all’oggetto d’indagine, in particolare dalle contaminazioni dovute alla soggettività dell’esaminato."
+
+\begin{flushright}
+\emph{Adattato da Stracciari, Bianchi, Sartori (2010); Neuropsicologia Forense}
+\end{flushright}
+
+Il concetto di oggettività verrà ripreso più avanti, specie con *inter-rater agreement*
+
+## Definizione di test
+
+```{=latex}
+\setlength{\fboxrule}{1.5pt}
+
+"Un test è una
+\alt<2->{\fcolorbox{red}{white}{\rule{0pt}{12pt}\hspace{2pt}procedura sistematica\hspace{2pt}}}{procedura sistematica}
+per\\
+\alt<3->{\fcolorbox{red}{white}{\rule{0pt}{12pt}\hspace{2pt}l’osservazione del comportamento\hspace{2pt}}}{l’osservazione del comportamento}
+di una persona e per la sua
+\alt<4->{\fcolorbox{red}{white}{\rule{0pt}{12pt}\hspace{2pt}descrizione con l’aiuto di una scala numerica\hspace{2pt}}}{descrizione con l’aiuto di una scala numerica}
+o un sistema di categorie.
+
+\begin{flushright}
+  \emph{(Cronbach, 1990, p.32)}
+\end{flushright}
+\pause
+
+\onslide<5->{
+\begin{flushright}
+  \begin{figure}
+    \includegraphics[scale=0.05]{Figures/triangle.png}
+  \end{figure}
+\end{flushright}
+
+L’interesse non è mai nel comportamento in sé ma nel \textbf{costrutto} misurato da quel comportamento.
+
+\textbf{Costrutto}: un concetto psicologico non osservabile
+}
+
+```
+## Cosa sono i test
+
+I test cognitivi/neuropsicologici sono test di performance massima (o prestazione massima)
+
+Essi presentano alcune caratteristiche (che discuteremo nel corso). Sono diversi da questionari o test di *risposta tipica*.
+\pause
+\vspace{2em}
+
+\begin{center}
+La maggior parte dei test a cui ci faremo riferimento sono quelli di performance massima
+\end{center}
+
+## Cosa sono i test
+
+\begin{center}
+  \textbf{Esempio:}
+\end{center}
+\vspace{2em}
+
+\emph{Consideriamo il test Linguaggio Figurato 1.}
+
+\emph{Il paziente un punteggio finale di 10.}
+
+\emph{Cosa indica questo numero?}
+\pause
+\vspace{2em}
+
+Il comportamento è l’*indicatore di un costrutto* (con costrutto indico genericamente un concetto psicologico non direttamente osservabile)
+
+## Cosa sono i test
+```{=latex}
+\begin{figure}
+  \includegraphics[scale=0.3]{Figures/measurement_diagramma.png}
+\end{figure}
+
+\begin{flushright}
+  (Da Mondini, Cappelletti, Arcara, 2022)
+\end{flushright}
+
+\textbf{Costrutto}: Concetto psicologico non osservabile direttamente
+
+```
+
+## Cosa sono i test
+
+Un esempio di test. Rivediamo l’esempio di Linguaggio Figurato 1
+
+## Uno schema per la misurazione in neuropsicologia
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}
+    % First block (top)
+    \node[draw, rectangle, text width=4cm, align=center] (construct) {\textbf{Costrutto} \\ (es. Memoria)};
+
+    % Second block (bottom, 5cm below)
+    \node[draw, rectangle, minimum width=3cm, minimum height=1cm, below=5cm of construct] (measure) {Punteggio};
+
+    \onslide<1-2>{\draw[<->, >=stealth, gray, dashed, thick] (construct) -- (measure);}
+
+\onslide<2>{\node[rectangle, minimum width=3cm, minimum height=1cm, below=2.25cm of construct, xshift=3cm] (Notpossible) {\textbf{Non è possibile!}};}
+
+
+    \onslide<3->{
+
+    \node[draw, rectangle, text width=4cm, align=center, below=2cm of construct] (behaviour) {\textbf{Comportamento}\\ (es. risposte al test)};
+
+    % Straight arrows (gray, dashed)
+    \draw[-{Stealth}, gray, solid, thick] (construct) -- (behaviour);
+    \draw[-{Stealth}, gray, solid, thick] (behaviour) -- (measure);
+
+    % Curved arrow on the left from construct to measure
+     \draw[<->, >=stealth, gray, dashed, thick] (measure) to[out=180, in=180] (construct);}
+
+     \onslide<4->{
+
+    \node[draw, rectangle, text width=4cm, align=center, right=0.5cm of construct] (others) {\textbf{Altre variabili}\\ {\small(es. Età, Scolarità, Umore, Motivazione, Affaticamento, \textit{Altri Costrutti})}};
+    \draw[-{Stealth}, gray, solid, thick] (others) -- (behaviour);
+
+     }
+    \onslide<5>{\node[rectangle, minimum width=3cm, minimum height=1cm, below=2.25cm of construct, xshift=3cm] (Notpossible) {\includegraphics[height=2cm]{Figures/termometro_mercurio.png}};}
+
+
+\end{tikzpicture}
+\end{center}
+```
+
+A differenza di una grandezza fisica (es. la temperatura, misurabile direttamente con uno strumento), un costrutto psicologico/neuropsicologico non è osservabile direttamente: lo inferiamo dal comportamento (le risposte al test), che è però influenzato anche da altre variabili.
+
+## Misurazione e invarianza di misura in neuropsicologia
+
+Il legame (mai diretto) tra costrutto, comportamento e punteggio nasconde in neuropsicologia un problema strutturale, su due piani:
+\pause
+
+\vspace{1em}
+**1) Le proprietà psicometriche sono verificate quasi solo su soggetti sani.** Validità e affidabilità sono in genere note solo per un gruppo di soggetti, di norma sani. Esistono analisi dette di **invarianza di misura** che valutano se le proprietà di misurazione restano costanti anche per altri gruppi.
+
+\pause
+\vspace{1em}
+**2) Le funzioni cognitive causa di una data performance possono essere specifiche del paziente.** L'assunzione implicita è che le funzioni cognitive che causano una certa performance siano le stesse indipendentemente da chi svolge il test. Nei pazienti con danno, invece, le funzioni cognitive sottostanti a una stessa performance osservata possono essere specifiche del singolo profilo di danno: una violazione *attesa* (non solo accidentale) di invarianza di misura, diversa da quella "tra gruppi noti" del punto 1.
+
+# Teoria dei test: CTT e IRT
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{Classical Test Theory}
+\end{center}
+
+La \textbf{Teoria Classica dei test (Classical Test Theory, CTT)} È un insieme di concetti di teoria di psicometria legati allo sviluppo di test psicologici. Spesso si basa su principi di misurazione come quello di Stevens
+\pause
+
+Fanno parte della CTT, concetti come Validità e Affidabilità.
+\pause
+
+La maggior parte dei test neuropsicologici, implicitamente o esplicitamente, utilizzano principi e assunti di CTT.
+
+```{=latex}
+\url{https://en.wikipedia.org/wiki/Classical_test_theory}
+```
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{Classical Test Theory}
+\end{center}
+
+Il principio cardine della CTT è la seguente formula:
+\begin{center}
+$X = T + E$
+\end{center}
+\pause
+
+$X$ = punteggio osservato
+
+$T$ = punteggio vero
+
+$E$ = errore
+\pause
+\vspace{1.5em}
+
+L'errore è indipendente dal punteggio vero.
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{I Limiti della Classical Test Theory}
+\end{center}
+
+La Teoria classica dei test ha dei problemi intrinseci. Ne citiamo alcuni:
+\pause
+
+- Abilità del soggetto e complessità/difficoltà del test sono confuse
+
+- Errore e punteggio vero non sono spesso realmente indipendenti
+
+- Problemi nella definizione di forme parallele (studieremo questo quando vedremo cambiamenti nel tempo)
+
+\pause
+*Consideriamo il possibile errore in un punteggio di Linguaggio Figurato 1 pari a 8, 0, oppure di 15. L’errore è veramente indipendente dal punteggio vero?*
+
+## Teoria dei test
+
+\begin{center}
+  \href{https://github.com/giorgioarcara/stat_forensic_neuropsy/blob/main/code/02_True_score.R}{\underline{Esempio script CTT}}
+\end{center}
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{Item Response Theory}
+\end{center}
+
+La Item Response Theory è una famiglia di metodi più avanzati che cercano di modellare in maniera indipendente la difficoltà del task e le abilità del soggetto.
+
+Tra I modelli di IRT I più famosi (storicamente) sono I modelli di Rasch, che permettono I modellare test in cui gli item hanno risposta sì/no.
+\pause
+
+I modelli di IRT hanno un’importante assunzione che spesso è critica per test neuropsicologici e cioè l’unidimensionalità del costrutto.
+\pause
+
+Si assume che il costrutto misurato dal test sia rappresentabile lungo un’unica dimensione (non sia la combinazione di più costrutti).
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{Item Response Theory}
+\end{center}
+
+Esempio formula Modelli di Rasch (la cito per completezza):
+\vspace{2em}
+
+```{=latex}
+\small
+\begin{align}
+  \Pr(X_{ni}=1 \mid \theta_n, \beta_i)
+  &= \frac{\exp(\theta_n - \beta_i)}{1 + \exp(\theta_n - \beta_i)}
+  \label{eq:rasch_prob}
+  \\
+  \Pr(X_{ni}=0 \mid \theta_n, \beta_i) &= \frac{1}{1 + \exp(\theta_n - \beta_i)}
+  \label{eq:rasch_prob0}
+\end{align}
+
+$\theta$ = ability
+$\beta$ = difficulty parameter
+```
+
+\vspace{2em}
+
+[[https://www.publichealth.columbia.edu/research/population-health-methods/item-response-theory]{.underline}](https://www.publichealth.columbia.edu/research/population-health-methods/item-response-theory)
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{Item Response Theory – Rasch models}
+\end{center}
+
+\begin{figure}
+  \includegraphics[width=0.7\textwidth]{Figures/Rasch_matrix.png}
+\end{figure}
+
+Per costruire modelli di Rasch/IRT si parte spesso da matrici di questo tipo.
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{Classical Test Theory vs Item Response Theory}
+\end{center}
+\vspace{2em}
+
+Sebbene I modelli di IRT siano psicometricamente più rigorosi, in questo corso parlerò praticamente sempre di CTT perché la quasi totalità di test disponibili per Neuropsicologia Clinica sono sviluppati secondo questo principio (e non con IRT).
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{Classical Test Theory vs Item Response Theory}
+\end{center}
+
+*Perché non ci sono test sviluppati IRT, se sono più rigorosi?*
+\pause
+
+Un misto di aspetti teorici e praticità
+\pause
+
+- Sviluppare test con IRT è più costoso (e può andare più facilmente male)
+- spesso i costrutti neuropsicologici violano quasi per definizione l’unidimensionalità.
+- talvolta ad una diversa procedura, comunque IRT e CTT possono portare a risultati molto simili ([Hula et al., 2006](https://doi.org/10.1044/1092-4388(2006/003)))
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{Classical Test Theory vs Item Response Theory}
+\end{center}
+
+L’assunto di undimensionalità, assume che:
+
+\begin{itemize}[<*>]
+\item gli Item possano essere ordinati secondo la loro difficoltà e che
+\item la probabilità di rispondere correttamente ad un Item rifletta (più o meno) alla sua difficoltà: più un item è difficile meno probabile è rispondere correttamente.
+\end{itemize}
+
+Questo è facile pensarlo per test che includano item in cui è facile gradare la difficoltà (es. esercizi di matematica), ma con un test neuropsicologico?
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{Classical Test Theory vs Item Response Theory}
+\end{center}
+\vspace{2em}
+
+```{=latex}
+\begin{columns}
+  \begin{column}{0.5\textwidth}
+    \begin{figure}
+    \includegraphics[scale=0.1]{Figures/MoCA-Test-Italian.png}
+    \end{figure}
+  \end{column}
+  \begin{column}{0.5\textwidth}
+    È facile gradare gli item del moca per difficoltà?
+  \end{column}
+\end{columns}
+```
+
+## Teoria dei test
+
+\begin{center}
+  \textbf{Classical Test Theory vs Item Response Theory}
+\end{center}
+\vspace{1.5em}
+
+\begin{figure}
+  \includegraphics[scale=0.5]{Figures/ENB2_cit.png}
+\end{figure}
+
+\footnotesize
+\begin{flushright}
+  \textit{da ENB-2 p. 25, Mondini et al. 2011}
+\end{flushright}
+
+# Costrutti
+
+## Costrutti
+
+\begin{center}
+  \textbf{I costrutti misurati tramite i test neuropsicologici}
+\end{center}
+
+\textbf{Costrutto}: Concetto psicologico non osservabile direttamente
+
+*Quali sono i tipici costrutti misurati dai test neuropsicologici?*
+
+\begin{figure}
+  \includegraphics[scale=0.05]{Figures/triangle.png}
+\end{figure}
+
+I test neuropsicologici misurano costrutti di diverso tipo
+
+## Costrutti
+
+\begin{center}
+  \textbf{I costrutti misurati tramite i test neuropsicologici sono a diversi livelli}
+  \vspace{2em}
+
+  Abilità funzionali
+
+  {\small Costrutti più generici}
+
+  {\footnotesize Funzioni cognitive}
+\end{center}
+
+## Costrutti
+
+\begin{center}
+  \textbf{1) I test neuropsicologici misurano funzioni cognitive}
+\end{center}
+\vspace{2em}
+
+Esempi
+
+Il digit span misura la (capacità della) memoria a breve termine.
+
+Il test di memoria con interferenza (ENB-3) misura la (capacità della) memoria di lavoro.
+
+Il TMT-A misura la (capacità di) ricerca visuo-spaziale, di attenzione selettiva e di velocità psicomotoria.
+
+\begin{flushright}
+  \textit{da ENB-3 (Mondini et al., 2011)}
+\end{flushright}
+
+## Costrutti
+
+\begin{center}
+  \textbf{2) I test neuropsicologici misurano costrutti più generici}
+\end{center}
+\vspace{2em}
+
+Esempi
+
+Il Fab-it (Appollonio et al., 2005) misura il generale stato delle funzioni esecutive
+
+Il SET (Dodich et al., 2015),  nel punteggio globale misura l’abilità di teoria della mente.
+
+Linguaggio Figurato 1 in APACS (Arcara & Bambini, 2016),  il punteggio indica la capacità di andare oltre il significato letterale e di comprendere il linguaggio figurato.
+
+## Costrutti
+
+\begin{center}
+  \textbf{2) I test neuropsicologici misurano costrutti più generici}
+\end{center}
+\vspace{2em}
+
+Esempi
+
+Driving Scenes Test (Brown et al., 2005)
+
+NADL-F (Arcara et al., 2017) [[https://osf.io/d9jng/]{.underline}](https://osf.io/d9jng/)
+\vspace{2em}
+
+*I test ecologici molto utili per risposte concrete sulla vita quotidiana ma possono essere lunghi o poco disponibili*
+
+## Costrutti a diversi livelli
+
+\begin{center}
+  \textbf{I costrutti misurati tramite i test neuropsicologici sono a diversi livelli}
+  \vspace{2em}
+
+  Abilità funzionali
+  (es. Abilità di guida)
+
+  {\small Costrutti più generici
+  (es. Efficienza funzioni esecutive)}
+
+  {\footnotesize Funzioni cognitive
+  (es. Memoria di lavoro)}
+
+\end{center}
+
+## Costrutti a diversi livelli
+
+\begin{center}
+  \textbf{I costrutti misurati tramite i test neuropsicologici sono a diversi livelli}
+\end{center}
+\vspace{2em}
+
+Il fatto che i costrutti siano a gerarchie diverse implica che il costrutto misurato da un test potrebbe essere incluso all’interno di un costrutto misurato da un altro test.
+
+Questo aspetto verrà ripreso nel punto in cui discuteremo dell’interpretazione dei test.
+
+## Altre tipologie di test
+
+I test neuropsicologici sono il più delle volte test di performance massima cioè test in cui al soggetto è chiesto di fare il meglio possibile.
+
+Talvolta vengono usate anche scale funzionali o questionari (non di prestazione massima).
+
+La **IADL** (Lawton & Brody, 1970) è una scala dell’autonomia nella vita quotidiana, non è un vero e proprio test.
+
+Il **COAST** (Bambini et al., 2016) è una scala per la valutazione dell’efficacia comunicativa dal punto di vista del paziente o del caregiver.
+
+Test di personalità, di umore, etc. **NON** sono test di prestazione massima
+
+## Riflessione su misurazione di specifici costrutti
+
+**Perché è utile misurare un certo costrutto?**
+\pause
+
+Talvolta ci si dimentica il *perché* si vuole misurare un certo costrutto e perché potrebbe essere utile a livello clinico.
+\pause
+
+C’è spesso un’assunzione di fondo: che la valutazione di aspetti cognitivi (anche di base) ci può dire qualcosa su come funziona quotidianamente una persona e quindi darci informazioni sul suo comportamento in situazioni al di fuori della valutazione
+
+Si assume che ci sia una **validità ecologica**[^1] di uno specifico test (il fatto che sia andato male in questo test implica che nella vita quotidiana c’è un effetto)
+
+[^1]: La validità ecologica verrà trattata nel blocco su Validità e Affidabilità
+
+## Riflessione su misurazione di specifici costrutti
+
+Assumere che i risultati del test ci dicano qualcosa sulla vita quotidiana non è sbagliato in sé, ma non dimentichiamo che (a meno che di validità ecologica comprovata da dati scientifici) questa è un’interpretazione.
+
+## Alcuni test NON misurano costrutti
+
+Alcuni test neuropsicologici non misurano (strettamente parlando) costrutti psicologici, ma quantificano altre informazioni rilevanti, ad esempio la probabilità di avere una certa malattia, o la probabilità di recuperare, etc.
+
+In questi casi non si può parlare di "costrutto" così come alcuni concetti (es. memoria, attenzione, etc.), ma valgono gran parte delle considerazioni fatte per i costrutti. Ad esempio, questi test se basati su aspetti cognitivi possono risentire di effetti motivazione, ansia, etc.
+
+# Cosa valutare in un test
+
+## I quattro elementi chiave da valutare in un test
+
+Una volta chiarito cosa intendiamo per misurazione, test e costrutto, il resto del corso approfondirà quattro elementi chiave per valutare la qualità di un test e dei suoi punteggi:
+
+\pause
+
+- **Validità**
+- **Affidabilità**
+- **Norme** (dati normativi)
+- **Valori di cambiamento significativo**
+
+## Tipi di validità
+
+- Validità di facciata
+- Validità di contenuto
+- Validità convergente/divergente (validità di costrutto)
+- Validità di criterio
+- Validità ecologica
+
+<br>
+Esistono diverse classificazioni di validità e affidabilità (vedi Urbina, 2004, Essentials of Psychological Testing, per un approfondimento). Quella che segue è solo una delle possibili classificazioni.
+
+Questi tipi di validità verranno approfonditi in un blocco successivo, dedicato interamente a Validità e Affidabilità.
+
+## Tipi di Affidabilità
+
+- Affidabilità inter-rater
+- Affidabilità test-retest
+- Affidabilità split-half
+- Consistenza Interna
+
+Esistono diverse classificazioni di affidabilità. Anche questa che sto utilizzando è una delle possibili.
+
+## Riassunto
+
+```{=latex}
+\begin{figure}
+  \includegraphics[scale=0.3]{Figures/measurement_diagramma.png}
+\end{figure}
+
+\begin{flushright}
+  {\scriptsize (Da Mondini, Cappelletti, Arcara, 2022)}
+\end{flushright}
+
+\textbf{Costrutto}: Concetto psicologico non osservabile direttamente
+
+```
