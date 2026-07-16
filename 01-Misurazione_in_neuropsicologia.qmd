@@ -39,6 +39,43 @@ header-includes:
 
 # Misurazione
 
+## A cosa serve un test neuropsicologico?
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+I test neuropsicologici hanno, nella pratica clinica, alcuni scopi principali:
+
+\vspace{1em}
+- \textbf{Caratterizzare} i deficit cognitivi di un paziente
+- \textbf{Pianificare} la riabilitazione
+- \textbf{Monitorare} nel tempo l'andamento della prestazione cognitiva
+- \textbf{Aiutare} la diagnosi clinica
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+\vspace{1em}
+\footnotesize Questo punto verrà ripreso più avanti nel corso.
+
+## Una valutazione neuropsicologica
+
+```{=latex}
+\begin{figure}
+\includegraphics[width=0.55\textwidth]{Figures/Valutazione_Neuropsi_ChatGPT.png}
+\end{figure}
+
+\begin{flushright}
+\emph{Una valutazione neuropsicologica secondo ChatGPT}
+\end{flushright}
+```
+
 ## Misurazione
 
 _“We may say that measurement, in the broadest sense, is defined as the assignment of numerals to objects or event, according to rules.”_
@@ -233,41 +270,6 @@ Essi presentano alcune caratteristiche (che discuteremo nel corso). Sono diversi
 La maggior parte dei test a cui ci faremo riferimento sono quelli di performance massima
 \end{center}
 
-## Cosa sono i test
-
-\begin{center}
-  \textbf{Esempio:}
-\end{center}
-\vspace{2em}
-
-\emph{Consideriamo il test Linguaggio Figurato 1.}
-
-\emph{Il paziente un punteggio finale di 10.}
-
-\emph{Cosa indica questo numero?}
-\pause
-\vspace{2em}
-
-Il comportamento è l’*indicatore di un costrutto* (con costrutto indico genericamente un concetto psicologico non direttamente osservabile)
-
-## Cosa sono i test
-```{=latex}
-\begin{figure}
-  \includegraphics[scale=0.3]{Figures/measurement_diagramma.png}
-\end{figure}
-
-\begin{flushright}
-  (Da Mondini, Cappelletti, Arcara, 2022)
-\end{flushright}
-
-\textbf{Costrutto}: Concetto psicologico non osservabile direttamente
-
-```
-
-## Cosa sono i test
-
-Un esempio di test. Rivediamo l’esempio di Linguaggio Figurato 1
-
 ## Uno schema per la misurazione in neuropsicologia
 
 ```{=latex}
@@ -310,7 +312,7 @@ Un esempio di test. Rivediamo l’esempio di Linguaggio Figurato 1
 
 A differenza di una grandezza fisica (es. la temperatura, misurabile direttamente con uno strumento), un costrutto psicologico/neuropsicologico non è osservabile direttamente: lo inferiamo dal comportamento (le risposte al test), che è però influenzato anche da altre variabili.
 
-## Misurazione e invarianza di misura in neuropsicologia
+## Invarianza di misura in neuropsicologia (1/2)
 
 Il legame (mai diretto) tra costrutto, comportamento e punteggio nasconde in neuropsicologia un problema strutturale, su due piani:
 \pause
@@ -318,8 +320,18 @@ Il legame (mai diretto) tra costrutto, comportamento e punteggio nasconde in neu
 \vspace{1em}
 **1) Le proprietà psicometriche sono verificate quasi solo su soggetti sani.** Validità e affidabilità sono in genere note solo per un gruppo di soggetti, di norma sani. Esistono analisi dette di **invarianza di misura** che valutano se le proprietà di misurazione restano costanti anche per altri gruppi.
 
-\pause
-\vspace{1em}
+## Invarianza di misura: una definizione
+
+L'**invarianza di misura** indica che le proprietà psicometriche di un test (es. la relazione tra costrutto e punteggio) restano costanti tra gruppi diversi (es. sani vs. pazienti, oppure gruppi di età diversa) [CITAZIONE DA CONFERMARE].
+
+<!--
+Candidate citations (choose one):
+Meredith, W. (1993). Measurement invariance, factor analysis and factorial invariance. Psychometrika, 58(4), 525-543.
+Horn, J. L., & McArdle, J. J. (1992). A practical and theoretical guide to measurement invariance in aging research. Experimental Aging Research, 18(3-4), 117-144.
+-->
+
+## Invarianza di misura in neuropsicologia (2/2)
+
 **2) Le funzioni cognitive causa di una data performance possono essere specifiche del paziente.** L'assunzione implicita è che le funzioni cognitive che causano una certa performance siano le stesse indipendentemente da chi svolge il test. Nei pazienti con danno, invece, le funzioni cognitive sottostanti a una stessa performance osservata possono essere specifiche del singolo profilo di danno: una violazione *attesa* (non solo accidentale) di invarianza di misura, diversa da quella "tra gruppi noti" del punto 1.
 
 # Teoria dei test: CTT e IRT
@@ -665,6 +677,100 @@ Alcuni test neuropsicologici non misurano (strettamente parlando) costrutti psic
 
 In questi casi non si può parlare di "costrutto" così come alcuni concetti (es. memoria, attenzione, etc.), ma valgono gran parte delle considerazioni fatte per i costrutti. Ad esempio, questi test se basati su aspetti cognitivi possono risentire di effetti motivazione, ansia, etc.
 
+# Misurazione Neuropsicologica In Italia
+
+## Risorse per scegliere i test in Italia
+
+*Come selezionare i test neuropsicologici disponibili in Italiano?*
+
+\underline{Alcune possibili fonti:}
+
+**Kit del Neuropsicologo**: un libro prodotto dalla Società Italiana di Neuropsicologia (per i Soci) che contiene riferimenti a quasi tutti i test disponibili in Italiano (non è però aggiornatissimo ed è difficile da trovare).
+
+**Libro "L'esame neuropsicologico dell'Adulto"** (a cura di Bianchi A.): contiene un capitolo che include una lista piuttosto ampia di test neuropsicologici adattati in Italiano.
+
+## Attenzione ai test tradotti senza validazione italiana
+
+Nella scelta di un test, è bene evitare:
+
+\begin{itemize}[<*>]
+  \item Test troppo datati (se i dati normativi sono troppo vecchi potrebbero non essere utilizzabili).
+  \item Test "fatti in casa": un test passato da un collega senza dati normativi (magari tradotto da un test in inglese) può essere accattivante (e talvolta utile) ma è limitato nelle informazioni che può fornire.
+  \item Test che sono semplici traduzioni da test stranieri, non "adattati" all'italiano tramite opportune prove di validità, affidabilità e dati normativi.
+\end{itemize}
+
+## Dati normativi paese-specifici: il caso del MoCA
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+
+Non si può stimare la prestazione a partire da dati normativi raccolti in altri paesi: \textbf{non basta tradurre un test per renderlo utilizzabile.}
+
+Non è solo un fattore di lingua e di adattamento, ma anche di aspetti socioculturali che possono rendere i dati normativi non adeguati.
+
+L'iniziale diffusione del \textbf{MoCA} (Nasreddine et al., 2005) in Italia, prima che fossero disponibili dati normativi italiani adeguati, è un caso lampante di questa prassi profondamente scorretta.
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Per ragioni storiche, le proprietà di misura sono spesso trascurate
+
+In Italia (e nei test neuropsicologici in generale) c'è spesso poca attenzione storica a validità e affidabilità in senso stretto. Il termine *validato* viene talvolta usato per indicare semplicemente che sono stati raccolti dati normativi, un aspetto completamente diverso.
+
+\pause
+\vspace{1em}
+Esempio: nell'articolo originale del FAB (Appollonio et al., 2005) non erano riportate vere e proprie prove di validità per la versione italiana. Queste sono arrivate solo nel 2022 (Aiello et al., 2022), a sottolineare come la validità sia un **processo continuo di accumulazione di evidenze**, non una proprietà acquisita una volta per tutte.
+
+## Validità nei test italiani
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+\vspace{2em}
+
+\begin{figure}
+\includegraphics[scale=0.4]{Figures/Aiello_table.png}
+\end{figure}
+
+\column{0.5\textwidth}
+\small
+Validità nei test di screening italiani (somministrazione dal vivo).
+
+Aiello et al., 2022. Una cella senza quadratino indica che quel dato non è disponibile.
+
+\vspace{1em}
+CV = concurrent validity\\
+CrV = criterion validity\\
+DV = divergent validity
+
+\end{columns}
+```
+
+\footnotesize
+\begin{flushright}
+Per un approfondimento sistematico si veda anche: Mondini, S., Cappelletti, M., \& Arcara, G. (2022). \emph{Methodology in Neuropsychological Assessment: An Interpretative Approach to Guide Clinical Practice}. Taylor \& Francis.
+\end{flushright}
+
+## Attività: cerchiamo un test neuropsicologico italiano
+
+Provate a cercare, individualmente o in piccoli gruppi, un test neuropsicologico disponibile in lingua italiana (usando le risorse viste in questa sezione, o una ricerca su Google Scholar/PubMed).
+
+\pause
+\vspace{1em}
+Per il test trovato, provate a rispondere:
+
+- Sono disponibili dati normativi italiani?
+- Sono disponibili prove di validità e affidabilità (non solo dati normativi)?
+- Il test è una traduzione di un test straniero? Se sì, è stato adattato e validato per l'italiano?
+
 # Cosa valutare in un test
 
 ## I quattro elementi chiave da valutare in un test
@@ -714,3 +820,11 @@ Esistono diverse classificazioni di affidabilità. Anche questa che sto utilizza
 \textbf{Costrutto}: Concetto psicologico non osservabile direttamente
 
 ```
+
+\vspace{1em}
+\pause
+\small
+La \textbf{misurazione} in senso stretto (definire con rigore il costrutto e le proprietà psicometriche del punteggio) è spesso trascurata in neuropsicologia clinica, a favore di una maggiore attenzione ai \textbf{dati normativi}.
+
+\pause
+Questo è legato in parte a un orientamento epistemologico della neuropsicologia clinica più orientato a **guidare la scelta clinica**, che a **misurare accuratamente i costrutti sottostanti**.
