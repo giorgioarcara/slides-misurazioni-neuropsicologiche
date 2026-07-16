@@ -14,6 +14,8 @@ header-includes:
   \setbeamerfont{title}{size=\large}
   \usepackage{hyperref}
   \setbeamertemplate{footline}[frame number]
+  \usepackage{tikz}
+  \usetikzlibrary{positioning, arrows.meta}
 
 ---
 
@@ -35,14 +37,15 @@ header-includes:
 ```
 :::
 
+
 # Dal punteggio al dato di riferimento
 
 ## Significato dei punteggi
 
-Supponiamo di somministrare il test di Linguaggio Figurato 1 di APACS (perché siamo soddisfatti di sue Validità e Affidabilità) e supponiamo di ottenere il punteggio 10/15 (quindi 75\% di risposte corrette). Cosa ci dice questo punteggio?
+Supponiamo di somministrare il MoCA (Montreal Cognitive Assessment) a un paziente e di ottenere un punteggio di 22/30. Cosa ci dice questo punteggio?
 \pause
 \begin{center}
-  \textbf{I punteggi ai test in sé sono poco informativi}
+  \textbf{I punteggi ai test in sé sono poco informativi a fini clinici}
 \end{center}
 \pause
 
@@ -69,14 +72,32 @@ I punteggi grezzi sono poco informativi non solo perché i valori dipendono dal 
 \end{center}
 ```
 
-Per trasformare i punteggi ad un test cognitivo in qualcosa di interpretabile e utile spesso si effettua una trasformazione dal punteggio grezzo \underline{alla percentuale di popolazione} \underline{che ottiene quel punteggio}.
+\small
 
-Tra i punteggi trasformati dati spesso rivestono particolare rilevanza delle soglie specifiche, chiamate **cut-off**, che nella versione più diffusa, delimita il 5% delle prestazioni peggiori.
+Per trasformare i punteggi ad un test cognitivo in qualcosa di interpretabile e utile, il passaggio logico segue tipicamente **tre step**: dal punteggio grezzo, alla percentuale di popolazione che ottiene quel punteggio} (il percentile), fino a un eventuale confronto con una o più **soglie** (cut-off).
+
+## I tre step per interpretare un punteggio
 
 
-## Cut-off e statistica
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw, rectangle, rounded corners, minimum width=3cm, minimum height=1cm, align=center},
+  arrow/.style={-{Stealth}, thick}
+]
+\node[box] (grezzo) {Punteggio\\grezzo};
+\node[box, right=1.2cm of grezzo] (perc) {Percentile};
+\node[box, right=1.2cm of perc] (soglia) {Confronto con\\soglie/cut-off};
 
-Anche se spesso non è chiaro, il confronto di un punteggio con un cut-off si configura come l'applicazione di un **test statistico** per arrivare ad una decisione (inferenza satistica).
+\draw[arrow] (grezzo) -- (perc);
+\draw[arrow] (perc) -- (soglia);
+\end{tikzpicture}
+\end{center}
+```
+
+## Cut-offs e statistica
+
+Anche se spesso non è chiaro, il confronto di un punteggio con un cut-off è analogo all'applicazione di un **test statistico** per arrivare ad una decisione (inferenza).
 
 I test statistici utilizzati in contesto clinico sono spesso non convenzionali perché _applicati al caso singolo_ (mentre gran parte della statistica inferenziale stima effetti medi riferiti a gruppi).
 
@@ -87,9 +108,11 @@ I cut-off sono un punteggi-soglia al di sotto del quale la prestazione è consid
 
 I cut-off vengono calcolati a partire dai dati normativi e spesso corrisponde al **5% dei punteggi peggiori**
 
-Spesso i cut-off solitamente riportati in tabelle, indipendentemente dal metodo usato per calcolarli. Di recente sono sempre più diffusi software che trasformano i punteggi e confrontano in maniera automatica con i cut-offs.
+
 
 ## Esempio di cut-off riportati in tabelle
+
+Spesso i cut-off solitamente riportati in tabelle, indipendentemente dal metodo usato per calcolarli. Di recente sono sempre più diffusi software che trasformano i punteggi e confrontano in maniera automatica con i cut-offs.
 
 ![](Figures/cutoff_humor.png){width="90%" fig-align="center"}
 \begin{flushright}
@@ -100,7 +123,7 @@ Spesso i cut-off solitamente riportati in tabelle, indipendentemente dal metodo 
 
 ## I cut-off e i dati normativi
 
-I dati normativi sono dati raccolti su soggetti che assumiamo siano normali. Servono a stabilire quali prestazioni possiamo considerare normali e quali no.
+I dati normativi sono dati raccolti su soggetti che assumiamo siano _normali_. Servono a stabilire quali prestazioni possiamo considerare normali e quali no.
 \vspace{2em}
 
 Chiamiamo i cut-off calcolato sui dati normativi **cut-off di normalità**.
@@ -237,8 +260,6 @@ Il cut-off è un punteggio particolarmente basso che osserviamo in pochi soggett
 In genere il cut-off è definito (arbitrariamente) come il valore che delimita il 5\% dei punteggi più bassi.
 \vspace{1em}
 
-NOTA: Il cut-off NON ci indica la probabilità che il soggetto sia normale o abbia un danno cognitivo (è una differenza un po’ sottile, ne parleremo con il teorema di Bayes)
-
 \column{0.2\textwidth}
 
 \begin{figure}
@@ -247,171 +268,42 @@ NOTA: Il cut-off NON ci indica la probabilità che il soggetto sia normale o abb
 \end{columns}
 ```
 
-# Dal valore continuo alla soglia: il paradosso del sorite
+# Dal valore continuo alla soglia
 
-## Uno o più cut-off? 1/2
-
-\small
-Una volta che si possiede una distribuzione di dati di riferimento è possibile in generale classificare la presentazione rispetto all’intera distribuzione (questo può dipendere dal metodo con cui sono analizzati i dati).
-
-Ad esempio è possibile dire se la persona ha una performance più bassa del 20% o il 30% rispetto al campione/popolazione di riferimento.
-
-L’assenza di soglie ci porta però (da un punto di vista concettuale) ad un rischio del [[paradosso del mucchio]{.underline}](https://it.wikipedia.org/wiki/Paradosso_del_sorite).
-
-Non è possibile definire chiaramente quando si passa da normalità a quando si passa alla presenza di un “deficit/danno”. Il paradosso del mucchio ci insegna che **le categorie a partire da una variabile continua sono e saranno sempre arbitrarie**.
-
-## Uno o più cut-off? 2/2
-
-Il fatto di avere una soglia decisionale, per quanto arbitraria, ha però delle utilità euristiche.
-Dovremo decidere ad un certo punto se c'è un problema oppure no e questo tendenzialmente ci porta ad utilizzare soglie categoriali.
-
-Si veda per esempio [\underline{questo articolo}](https://journals.sagepub.com/doi/full/10.1177/09593543231160112) per un approfondimento sul valore epistemico di scelte dicotomiche, che ben si applica a questo caso.
-
-# Come si calcolano i cut-off
-
-## Come si calcolano i cut-off?
-
-- Metodi parametrici (Media, deviazione standard e Z score)
-- Metodi non parametrici
-- Altri metodi (regressioni)
-
-## Metodi parametrici (base) per il calcolo dei cut-off
-
-\begin{center}
-  \textbf{Metodi parametrici (base) per il calcolo dei cut-off}
-\end{center}
-
-1) **Media e deviazione standard**. Se la distribuzione è normale possiamo calcolare il cut-off del 5% dei punteggi più bassi, come 1.64 deviazioni standard sotto la media.
-
-2) **Z-score**. Metodo analogo al precendete. Se trasformiamo i dati in punti $Z$, un punteggio pari a -1.64 indica il cut-off dei 5% dei punteggi più bassi.
-
-$$
-Z = \frac{X - M}{SD}
-$$
-$$
-\small
-\begin{aligned}
-X & = \text{punteggio ottenuto dal soggetto} \\
-M & = \text{media del gruppo di riferimento} \\
-SD & = \text{deviazione standard del gruppo di riferimento} \\
-\end{aligned}
-$$
-
-## Metodi parametrici (base) per il calcolo dei cut-off
-
-\begin{center}
-  \textbf{Metodi parametrici (base) per il calcolo dei cut-off}
-\end{center}
-\vspace{1em}
-
-![](Figures/gaussiana.png){width="80%" fig-align="center"}
-\small
-*NOTA*: riferirci alla curva normale e alla trasformazione in punti $Z$ ci aiuta ad identificare percentili, cioè valori che delimitano percentuali di dati.
-
-*I metodi parametrici possono essere usati con sicurezza solo se la distribuzione è normale (gaussiana)*
-
-
-## Distribuzione normale vs non-normale
+## Il paradosso del mucchio
 
 ```{=latex}
-\begin{columns}
+\begin{columns}[c]
 \column{0.5\textwidth}
-
-\begin{center}
-\textbf{distribuzione normale}
-\end{center}
-\vspace{1em}
 \begin{figure}
-\includegraphics[scale=0.25]{Figures/distr_norm.png}
+\includegraphics[width=0.5\textwidth]{Figures/poor.png}
 \end{figure}
-\textbf{ }
-
 \column{0.5\textwidth}
-
-\begin{center}
-\textbf{distribuzione non-normale}
-\end{center}
-\vspace{1em}
+\pause
 \begin{figure}
-\includegraphics[scale=0.25]{Figures/distr_nonnorm.png}
-\end{figure}
-
-\begin{center}
-test con \textbf{effetto soffitto}
-\end{center}
-
-\end{columns}
-```
-
-## Attenzione all'uso dei punti z con distribuzioni non normali
-
-```{=latex}
-\begin{columns}
-\column{0.8\textwidth}
-Se si usano i punti z con distribuzioni non normali, la corrispondenza tra specifici punteggi z e percentuali può non essere rispettata.
-\vspace{2em}
-
-Ad esempio -1.64 può non corrispondere al valore che delimita 5\% dei punteggi più bassi, portando al calcolo di cut-off sbagliati.
-\column{0.2\textwidth}
-
-\begin{figure}
-\includegraphics[scale=0.05]{Figures/triangle.png}
+\includegraphics[width=0.5\textwidth]{Figures/rich.png}
 \end{figure}
 \end{columns}
 ```
 
-## Parentesi: normalizzare non rende normale
+## Il paradosso del mucchio
 
-\begin{center}
-  \textbf{PARENTESI}
+- **Premessa 1**: Se una persona ha 0 monete è "povera"
 
-  \textbf{Standardizzare (trasformare in z-score) a volte è anche detto "normalizzare", ma non rende la distribuzione \textit{normale}!}
-\end{center}
+- **Premessa 2**: Se una persona "povera" guadagna 1 sola moneta, non diventa "ricca"
 
-![](Figures/distribuzioni_normalizzate.png){width="100%" fig-align="center"}
-
-## Metodi non parametrici (base) per il calcolo dei cut-off
-
-\begin{center}
-  \textbf{Metodi non parametrici (base) per il calcolo dei cut-off}
-\end{center}
-\vspace{2em}
-
-I **percentili non parametrici** sono il metodo più diffuso di calcolo dei cut-off nel caso di distribuzioni non normali.
-
-Lo svantaggio dell’utilizzo di percentili è che non è possibile usare formule rapide per ricavare cut-off a diverse percentuli (ad esempio il 20% dei punteggi peggiori) ma è necessario avere a disposizione tutti i dati.
-
-## Altri metodi (avanzati) per il calcolo dei cut-off
-
-\begin{center}
-  \textbf{Altri metodi (avanzati) per il calcolo dei cut-off}
-\end{center}
+\pause
 \vspace{1em}
+**Conclusione paradossale**: applicando il principio della Premessa 2 un miliardo di volte, la persona dovrebbe essere ancora "povera".
 
-Esistono altri metodi per il calcolo dei cut-off. La maggior parte prevedono l’uso di regressioni.
-
-Il vantaggio, rispetto a metodi che prevedono la divisione in fasce è che con questi metodi **non avviene una stratificazione arbitraria**.
-
-Esempi:
-
-- metodo dei Punteggi Equivalenti (Capitani & Laiacona, 2007)
-
-- Alcuni metodi di Crawford (Crawford & Howell, 1998; Crawford & Garthwaite, 2006)
+\pause
+\vspace{1em}
+\small
+_Ogni volta che una variabile continua viene mappata su categorie vaghe, soglie arbitrarie creano casi limite che possono generare paradossi del tipo "del mucchio"._
 
 \vspace{1em}
-\footnotesize Il metodo dei Punteggi Equivalenti e i metodi di regressione saranno approfonditi nel prossimo blocco. Il t-test di Crawford lo vediamo tra poco in questo blocco.
+\footnotesize Per un approfondimento si veda anche la voce di Wikipedia sul [\underline{paradosso del sorite}](https://it.wikipedia.org/wiki/Paradosso_del_sorite).
 
-## Campione e Popolazione nei dati normativi
-
-I dati normativi sono i dati raccolti da un **campione** proveniente da una **popolazione**.
-
-L’interesse è però sempre confrontare la prestazione osservata con i dati della popolazione. Alcuni metodi tengono conto di questa differenza, fornendo dei cut-off che sono una stima di quelli che si osserverebbero nella popolazione.
-
-**Questi cut-off sono spesso più bassi** (più conservativi).
-
-Il metodo dei **Punteggi Equivalenti** (Capitani e Laiacona, 2007) e il metodo di **Crawford** (Crawford & Howell, 1998; Crawford & Garthwaite, 2006) tengono conto di questa differenza. Tali metodi sono da considerarsi più corretti.
-
-# Riepilogo e buone pratiche sui dati normativi
 
 ## Riepilogo su dati normativi e cut-off
 
@@ -466,9 +358,9 @@ L’iniziale diffusione del \textbf{MoCA} (Nasreddine et al., 2005) in Italia, �
 
 # Dal numero al percentile, dal percentile alla soglia
 
-## Cosa vedremo
+## Outline delle prossime slides
 
-1. Il concetto di soglie per percentuali o probabilità
+1. Percentuali o probabilità
 2. Punti z e probabilità
 3. Percentili
 4. Campione vs Popolazione
@@ -499,20 +391,42 @@ Formalizzare in maniera più rigorosa aiuta ad evitare gli effetti di una termin
 
 ## I valori utili per la clinica
 
-Definiamo in generale valori utili alla classificazione clinica quei punteggi x al di sotto del quale che c’è una probabilità nota k che un punteggio osservato o abbia un valore uguale o inferiore a x (nei test in cui un punteggio basso indica una performance peggiore).
+Definiamo in generale un valore soglia utile alla classificazione clinica come il punteggio $x_k$ al di sotto del quale c’è una probabilità nota $k$ di osservare il punteggio $O$ (nei test in cui un punteggio basso indica una performance peggiore).
 
 $$
 \small
-\text{definiamo}\ x\ \text{in modo tale che}\ P(o<x) = k
+x_k : P(O \le x_k) = k
 $$
 
-es. con il “cut-off di normalità”, $k$ = 0.05 e il valore $x$ è il valore tale che $p(O < x ) = 0.05$ (c’è il 5% di probabilità di osservare una prestazione inferiore a x, essendo basso, inferiamo un danno).
+dove $O$ è il punteggio (variabile casuale) nella popolazione di riferimento.
+
+es. con il “cut-off di normalità”, $k$ = 0.05: $x_{0.05}$ è il valore tale che $P(O \le x_{0.05}) = 0.05$ (c’è il 5% di probabilità di osservare, in un soggetto sano, una prestazione uguale o inferiore a $x_{0.05}$; se il nostro paziente ottiene un punteggio così basso, inferiamo un danno).
 
 La soglia del 5% è completamente arbitraria.
 
+## I valori utili per la clinica: un confronto con la definizione formale
+
+\small
+La formula precedente è una semplificazione: vale con un'uguaglianza esatta solo se la funzione di ripartizione (CDF) di $O$, $F_O(x) = P(O \le x)$, è continua.
+
+**Definizione formale di percentile (quantile)**, valida anche per distribuzioni **discrete** (come i punteggi ai test, tipicamente interi):
+
+$$
+x_k = Q_O(k) = \inf\{x \in \mathbb{R} : F_O(x) \ge k\}
+$$
+
+\vspace{1em}
+Con distribuzioni discrete, $F_O$ ha dei "salti": spesso **non esiste alcun valore $x$ per cui $P(O \le x)$ sia esattamente $k$** (es. 0.05). La definizione formale, basata su un estremo inferiore (infimum) e non su un'uguaglianza esatta, gestisce correttamente questo caso: è il motivo per cui, in pratica, il cut-off si approssima al percentile più vicino disponibile nei dati.
+
 ## I percentili
 
-Questa definizione è sovrapponibile a quella che si usa in statistica di “percentili”, in riferimento a una distribuzione.
+Più precisamente, un **percentile** è la percentuale del campione (o della distribuzione) di riferimento che ottiene un punteggio pari o inferiore a un dato punteggio $x$:
+
+$$
+\text{percentile}(x) = \frac{\#\{\text{soggetti del campione normativo con punteggio} \le x\}}{N} \times 100
+$$
+
+Questa è la stessa quantità $k$ (moltiplicata per 100) della definizione data sopra: $P(O \le x_k) = k$.
 
 L’utilizzo della curva normale o di percentili non parametrici rappresentano diversi metodi per identificare queste percentuali.
 
@@ -567,29 +481,34 @@ Si possono utilizzare **percentili non parametrici**.
 
 Questa definizione di percentili può essere però approfondita concentrandoci su un punto critico su cui in precedenza abbiamo glissato e cioè che i valori sono **relativi alla distribuzione di riferimento**.
 
-Possiamo quindi specificare meglio la formula così
+Possiamo quindi specificare meglio la formula così, condizionando esplicitamente a $N$: l'evento "il soggetto proviene dalla popolazione di riferimento (sani)".
 $$
 \small
-\text{definiamo}\ x\ \text{in modo tale che}\ P(o< x∣N )=k
+x_k : P(O \le x_k \mid N) = k
 $$
-$x$ è il valore per cui ci si attende un probabilità $k$ che un punteggio O sia inferiore a $x$, assumendo che la persona provenga da una popolazione di persone “sane” (cioè senza deficit cognitivo).
+$x_k$ è il valore per cui ci si attende una probabilità $k$ che un punteggio $O$ sia uguale o inferiore a $x_k$, assumendo che la persona provenga da una popolazione di persone “sane” (cioè senza deficit cognitivo).
 
 Infatti se la persona venisse da altre popolazioni (es. pazienti con Alzheimer) i valori attesi potrebbero essere diversi.
 
 ## Analogia con ipotesi nulla in test statistico
 
 \small
-Da notare che questa formulazione è del tutto analoga a quella del p-value in realazione dell’ipotesi nulla e all’identificazione dei valori critici della statistica  (es. il t-value critico oltre il quale considero il risultato significativo).
-$$
-x : P (t_{obs}<t_{crit}∣H_0)=q
-$$
-\begin{center}
-\begin{footnotesize}
-Questa formula è semplificata, e non sono considerati i gradi di libertà
-\end{footnotesize}
-\end{center}
+Da notare che questa formulazione è del tutto analoga, nella sua logica, a quella usata per definire un **valore critico** in un test statistico, e a quella del **p-value**.
 
-$x$ è il valore per cui ci si attende un probabilità $q$ che la statistica osservata ($t_{obs}$ in questo caso) sia inferiore al $t$ critico, assumendo che $H_0$ sia vera.
+\vspace{1em}
+Valore critico (definito *a priori*, sulla distribuzione della statistica test sotto $H_0$):
+$$
+t_{crit} : P(T \le t_{crit} \mid H_0) = \alpha
+$$
+
+\vspace{0.5em}
+p-value (calcolato *dopo* aver osservato $t_{oss}$, il valore della statistica test nel nostro campione):
+$$
+p = P(T \le t_{oss} \mid H_0)
+$$
+
+\vspace{0.5em}
+dove $T$ è la variabile casuale "statistica test sotto $H_0$" e $t_{oss}$ il suo valore osservato. Si rifiuta $H_0$, equivalentemente, se $t_{oss} \le t_{crit}$ oppure se $p \le \alpha$.
 
 $H_0$ dipende dal tipo di test, ma nel caso di un confronto fra campioni indica che i due campioni che sono stati confrontati con il t-test provengono dalla stessa popolazione.
 
@@ -826,3 +745,293 @@ Es. supponiamo che il mio test fornisce un cut-off che si riferisce all’interv
 Supponiamo debba testare un paziente con 70 anni. Vuol dire che nella distribuzione di dati ci saranno persone di 80 anni di età (la cui performance potrebbe essere molto più bassa).
 
 **La stratificazione arbitraria in campioni per le variabili rilevanti (età, scolarità, sesso), ha sempre problemi sulla composizione del campione normativo e la sua rappresentatività.**
+
+# La regressione come base per le regression-based norms
+
+## L'idea chiave: modellare invece di suddividere in fasce
+
+Un limite dei metodi visti finora (es. suddivisione in fasce di età/scolarità) è che i confini tra fasce sono sempre in parte arbitrari, e riducono il numero di soggetti disponibili per la stima in ciascuna fascia.
+
+\pause
+\vspace{1em}
+
+Un'alternativa è **modellare direttamente** la relazione tra variabili demografiche e punteggio al test, tramite una **regressione**:
+
+$$
+\hat{Y} = b_0 + b_1 \cdot \text{Età} + b_2 \cdot \text{Scolarità} + \ldots
+$$
+
+\pause
+\vspace{1em}
+
+Il modello fornisce un **punteggio previsto** per qualunque profilo demografico, senza bisogno di soglie arbitrarie tra fasce.
+
+## Il residuo
+
+Per ciascun soggetto, il **residuo** è la differenza tra il punteggio osservato e quello previsto dal modello per il suo specifico profilo demografico:
+
+$$
+\text{residuo}_i = Y_i - \hat{Y}_i
+$$
+
+\pause
+\vspace{1em}
+
+Il residuo ci dice se quella persona ha ottenuto un punteggio migliore o peggiore di quanto atteso, **una volta tenuto conto delle variabili demografiche**. È proprio il residuo, e non il punteggio grezzo, ad essere usato come punteggio "aggiustato" nelle regression-based norms.
+
+## Codice R: stimare il modello e calcolare i residui
+
+```r
+# stima il modello di regressione
+modello <- lm(punteggio ~ eta, data = dati_normativi)
+
+# punteggio previsto dal modello per ciascun soggetto
+dati_normativi$previsto <- fitted(modello)
+
+# residuo = punteggio osservato - punteggio previsto
+dati_normativi$residuo <- residuals(modello)
+```
+
+\vspace{1em}
+\footnotesize Script completo (che genera anche le figure seguenti): \texttt{Scripts/genera\_figure\_residui.R}
+
+## Visualizzare i residui (1/2)
+
+![](Figures/regressione_residuo_singolo.png){width="75%" fig-align="center"}
+
+## Visualizzare i residui (2/2)
+
+![](Figures/regressione_residui_distribuzione.png){width="65%" fig-align="center"}
+
+\small
+Una volta rimosso l'effetto delle variabili demografiche, i residui si distribuiscono attorno allo zero: questa distribuzione è il riferimento normativo per i **punteggi aggiustati**.
+
+## Dai residui alle norme: alcuni metodi
+
+Una volta ottenuti i punteggi aggiustati (i residui), si possono applicare diverse strategie per ricavare norme e cut-off:
+
+\pause
+\vspace{0.5em}
+
+- **z-score sui residui**
+
+\pause
+
+- **percentili non parametrici dei residui**
+
+\pause
+
+- **Crawford \& Garthwaite (2006)** — approccio bayesiano per il caso singolo, applicato ai residui
+
+\pause
+
+- **Punteggi Equivalenti (Capitani \& Laiacona)** — metodo basato su percentili, molto diffuso in neuropsicologia italiana
+
+\pause
+\vspace{1em}
+\small
+_Vediamo ora nel dettaglio il metodo dei Punteggi Equivalenti._
+
+# I Punteggi Equivalenti
+
+## I Punteggi Equivalenti
+
+Introdotti da Erminio Capitani nella raccolta di taratura di test di Spinnler e Tognoni (1987)
+
+Tre aspetti chiave:
+
+- Correggono per età e scolarità tramite regressioni.
+- Tengono conto della differenza campione/popolazione.
+- Permettono il confronto tra diversi test.
+
+## I Punteggi Equivalenti
+
+Il calcolo dei Punteggi Equivalenti è suddiviso in vari step:
+
+1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità.
+2) Calcolo del limite di tolleranza (PE = 0).
+3) Calcolo dei rimanenti PE.
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+La distribuzione dei punteggi grezzi include persone di diversa età.
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/raw_scores_distr_normative_data.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Effetto dell'età
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/age_effect.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Effetto dell'età e retta di regressione
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/age_effect_regr_line.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Differenza tra punteggio previsto e punteggio osservato — lo stesso concetto di \textbf{residuo} appena visto, qui applicato al calcolo dei PE.
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/age_effect_regr_line_residual.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Calcolo dei residui di tutti i soggetti dei dati normativi
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/age_effect_regr_line_allresidual.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+I residui potrebbero essere considerati già punteggi «aggiustati» perché sono ciò che rimane del punteggio tolta l'influenza dei predittori (in questo caso ripulito dell'effetto di età)
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/residual_distr_normative_data.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Nel metodo dei PE, i punteggi aggiustati sono riportati in una scala simile a quella originale (tecnicamente, aggiungendo l'intercetta al residuo)
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/adj_scores_distr_normative_data.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Si calcola il PE = 0 come \textbf{limite di tolleranza interno unidirezionale non parametrico (5\%)}.
+
+Indica il punteggio che non verrà ottenuto da più del 5\% della popolazione (quindi il cut-off, a livello di popolazione).
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/limiti_tolleranza.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**2) Calcolo limite di tolleranza (PE = 0)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+In riferimento all'ipotetica distribuzione dell'abilità sottostante, si trova anche il PE = 4 e poi si divide lo spazio tra PE = 0 e PE = 4 in intervalli equispaziati (equispaziati rispetto all'abilità sottostante).
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/PE_distr.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**2) Calcolo limite di tolleranza (PE = 0)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+1) Calcoliamo il \textbf{punteggio aggiustato} tramite confronto con tabella o applicazione della formula di regressione
+
+2) Confronto con tabella di corrispondenza punteggio aggiustato -- Punteggio equivalente
+
+Non si correggono risultati che ottengono il punteggio massimo o minimo.
+
+\textbf{Se punteggio corretto è < soglia PE = 0, allora prestazione deficitaria.}
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/adj_score.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+Proviamo insieme a fare un ipotetico utilizzo di punteggi equivalenti.
+
+(vedere da articolo)
