@@ -407,7 +407,7 @@ I dati normativi sono i dati raccolti da un **campione** proveniente da una **po
 
 L’interesse è però sempre confrontare la prestazione osservata con i dati della popolazione. Alcuni metodi tengono conto di questa differenza, fornendo dei cut-off che sono una stima di quelli che si osserverebbero nella popolazione.
 
-**Questi cut-off sono spesso più bassi** (meno restrittivi).
+**Questi cut-off sono spesso più bassi** (più conservativi).
 
 Il metodo dei **Punteggi Equivalenti** (Capitani e Laiacona, 2007) e il metodo di **Crawford** (Crawford & Howell, 1998; Crawford & Garthwaite, 2006) tengono conto di questa differenza. Tali metodi sono da considerarsi più corretti.
 
