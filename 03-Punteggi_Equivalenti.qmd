@@ -1,0 +1,250 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+  \usepackage{tikz}
+  \usetikzlibrary{positioning, arrows.meta}
+
+---
+
+<!--
+BOZZA INIZIALE: contenuto spostato dal blocco 2 (02-Soglie_e_dati_normativi.qmd) durante la
+ristrutturazione di quel blocco. Da definire meglio con l'utente in una sessione dedicata
+(struttura, eventuali slide di raccordo, contenuti aggiuntivi da altre fonti).
+-->
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+% TITLE SLIDES
+\title{Misurazioni Neuropsicologiche\\ \vspace{1em} \emph{3. Punteggi Equivalenti}}
+\author{Giorgio Arcara,\\ Università di Padova \\ IRCCS San Camillo, Venezia}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+:::
+
+
+
+# I Punteggi Equivalenti
+
+## I Punteggi Equivalenti
+
+Introdotti da Erminio Capitani nella raccolta di taratura di test di Spinnler e Tognoni (1987)
+
+Tre aspetti chiave:
+
+- Correggono per età e scolarità tramite regressioni.
+- Tengono conto della differenza campione/popolazione.
+- Permettono il confronto tra diversi test.
+
+## I Punteggi Equivalenti
+
+Il calcolo dei Punteggi Equivalenti è suddiviso in vari step:
+
+1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità.
+2) Calcolo del limite di tolleranza (PE = 0).
+3) Calcolo dei rimanenti PE.
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+La distribuzione dei punteggi grezzi include persone di diversa età.
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/raw_scores_distr_normative_data.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Effetto dell'età
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/age_effect.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Effetto dell'età e retta di regressione
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/age_effect_regr_line.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Differenza tra punteggio previsto e punteggio osservato — lo stesso concetto di \textbf{residuo} appena visto, qui applicato al calcolo dei PE.
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/age_effect_regr_line_residual.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Calcolo dei residui di tutti i soggetti dei dati normativi
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/age_effect_regr_line_allresidual.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+I residui potrebbero essere considerati già punteggi «aggiustati» perché sono ciò che rimane del punteggio tolta l'influenza dei predittori (in questo caso ripulito dell'effetto di età)
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/residual_distr_normative_data.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Nel metodo dei PE, i punteggi aggiustati sono riportati in una scala simile a quella originale (tecnicamente, aggiungendo l'intercetta al residuo)
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/adj_scores_distr_normative_data.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+Si calcola il PE = 0 come \textbf{limite di tolleranza interno unidirezionale non parametrico (5\%)}.
+
+Indica il punteggio che non verrà ottenuto da più del 5\% della popolazione (quindi il cut-off, a livello di popolazione).
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/limiti_tolleranza.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**2) Calcolo limite di tolleranza (PE = 0)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+In riferimento all'ipotetica distribuzione dell'abilità sottostante, si trova anche il PE = 4 e poi si divide lo spazio tra PE = 0 e PE = 4 in intervalli equispaziati (equispaziati rispetto all'abilità sottostante).
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/PE_distr.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+**2) Calcolo limite di tolleranza (PE = 0)**
+
+```{=latex}
+\begin{columns}
+\column{0.5\textwidth}
+
+1) Calcoliamo il \textbf{punteggio aggiustato} tramite confronto con tabella o applicazione della formula di regressione
+
+2) Confronto con tabella di corrispondenza punteggio aggiustato -- Punteggio equivalente
+
+Non si correggono risultati che ottengono il punteggio massimo o minimo.
+
+\textbf{Se punteggio corretto è < soglia PE = 0, allora prestazione deficitaria.}
+
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[scale=0.25]{Figures/adj_score.png}
+\end{figure}
+\end{columns}
+```
+
+## I Punteggi Equivalenti
+
+Proviamo insieme a fare un ipotetico utilizzo di punteggi equivalenti.
+
+(vedere da articolo)

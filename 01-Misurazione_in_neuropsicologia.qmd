@@ -24,7 +24,7 @@ header-includes:
 ::: {.content-visible when-format="beamer"}
 ```{=latex}
 % TITLE SLIDES
-\title{Misure Neuropsicologiche\\ \vspace{1em} \emph{1. Misurazione in neuropsicologia}}
+\title{Misurazioni Neuropsicologiche\\ \vspace{1em} \emph{1. Misurazione in neuropsicologia}}
 \author{Giorgio Arcara,\\ Università di Padova \\ IRCCS San Camillo, Venezia}
 
 \titlegraphic{
