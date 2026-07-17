@@ -24,7 +24,7 @@ header-includes:
 ::: {.content-visible when-format="beamer"}
 ```{=latex}
 % TITLE SLIDES
-\title{Misurazioni Neuropsicologiche\\ \vspace{1em} \emph{2. Soglie e dati normativi}}
+\title{Misurazioni Neuropsicologiche\\ \vspace{1em} \emph{2. Dati normativi, percentili e soglie}}
 \author{Giorgio Arcara,\\ Università di Padova \\ IRCCS San Camillo, Venezia}
 
 \titlegraphic{
@@ -250,48 +250,23 @@ L’iniziale diffusione del \textbf{MoCA} (Nasreddine et al., 2005) in Italia, c
 - Il confronto con dati normativi serve per inferire un possibile deficit (disturbo funzionale) o danno (peggioramento): il metodo usato è spesso lo stesso, cambia l'interpretazione.
 - Per usare bene i dati normativi occorre collocare il punteggio rispetto alla distribuzione di riferimento: il prossimo passo è proprio il calcolo del **percentile**.
 
-# Percentili
+## Utilizzare i dati normativi
 
-## Percentili: cosa vedremo
+Cosa vedremo
 
-Il percentile è il modo per collocare un punteggio rispetto ai dati normativi. Per farlo bene servono alcuni passaggi:
+Il percentile è il modo più comune per collocare un punteggio rispetto ai dati normativi.
 
 1. Come si definisce e si calcola un percentile (punti z, percentili non parametrici)
 2. Perché campione e popolazione non sono la stessa cosa, e come tenerne conto (t-test di Crawford)
 3. Come la regressione supera i limiti della suddivisione in fasce
 
-\vspace{1em}
-\footnotesize I Punteggi Equivalenti, che si basano proprio su questi concetti, saranno il tema di un blocco dedicato.
-
-## Valori soglia e probabilità
-
-Il concetto di valore soglia è centrale nella statistica applicata alla neuropsicologia clinica: serve a determinare quanto una prestazione è probabile o improbabile.
-
-L'improbabilità è legata al concetto di deficit o danno cognitivo, operazionalizzato come una prestazione insolita, assumendo che la persona sia normale.
-
-\vspace{1em}
-L'uso di probabilità in ambito clinico è però insidioso: è facile sbagliarne l'interpretazione. Formalizzare in modo rigoroso aiuta ad evitare gli effetti di una terminologia vaga.
-
-## I valori utili per la clinica
-
-Definiamo un valore soglia utile alla classificazione clinica come il punteggio $x_k$ al di sotto del quale c’è una probabilità nota $k$ di osservare il punteggio $O$ (nei test in cui un punteggio basso indica una performance peggiore).
-
-$$
-\small
-x_k : P(O \le x_k) = k
-$$
-
-dove $O$ è il punteggio (variabile casuale) nella _popolazione_ di riferimento.
-
-es. con $k$ = 0.05: $x_{0.05}$ è il valore tale che $P(O \le x_{0.05}) = 0.05$ (il 5% di probabilità di osservare, in un soggetto sano, una prestazione uguale o inferiore a $x_{0.05}$; se il paziente ottiene un punteggio così basso, inferiamo un danno).
-
-\vspace{0.5em}
-\footnotesize Perché proprio il 5%? Ne parliamo nell'ultima parte, dedicata alle soglie.
+# Percentili
 
 ## I valori utili per la clinica: un confronto con la definizione formale
 
-\small
+<!-- \small
 La formula precedente è una semplificazione: vale con un'uguaglianza esatta solo se la funzione di ripartizione (CDF) di $O$, $F_O(x) = P(O \le x)$, è continua.
+-->
 
 **Definizione formale di percentile (quantile)**, valida anche per distribuzioni **discrete** (come i punteggi ai test, tipicamente interi):
 
@@ -300,41 +275,50 @@ x_k = Q_O(k) = \inf\{x \in \mathbb{R} : F_O(x) \ge k\}
 $$
 
 \vspace{1em}
-Con distribuzioni discrete, $F_O$ ha dei "salti": spesso **non esiste alcun valore $x$ per cui $P(O \le x)$ sia esattamente $k$** (es. 0.05). La definizione formale, basata su un estremo inferiore (infimum) e non su un'uguaglianza esatta, gestisce correttamente questo caso: è il motivo per cui, in pratica, il cut-off si approssima al percentile più vicino disponibile nei dati.
+Con distribuzioni discrete, $F_O$ ha dei "salti": spesso **non esiste alcun valore $x$ per cui $P(O \le x)$ sia esattamente $k$** (es. 0.05). La definizione formale, basata su un estremo inferiore (infimum) e non su un'uguaglianza esatta, gestisce correttamente questo caso.
 
 ## I percentili
 
-Più precisamente, un **percentile** è la percentuale del campione (o della distribuzione) di riferimento che ottiene un punteggio pari o inferiore a un dato punteggio $x$:
+Il **percentile** indica la percentuale del campione (o della distribuzione) di riferimento che ottiene un punteggio pari o inferiore a un dato punteggio $x$:
 
+\scriptsize
 $$
 \text{percentile}(x) = \frac{\#\{\text{soggetti del campione normativo con punteggio} \le x\}}{N} \times 100
 $$
+\normalsize 
 
 Questa è la stessa quantità $k$ (moltiplicata per 100) della definizione data sopra: $P(O \le x_k) = k$.
 
-L’utilizzo della curva normale o di percentili non parametrici rappresentano diversi metodi per identificare queste percentuali.
-
-L’uso di punti z non è altro che un metodo (parametrico) che semplifica l’identificazione di questi percentili.
+L’utilizzo della curva normale o l'uso di percentili non parametrici rappresentano diversi metodi per identificare i valori che delimitano queste percentuali.
 
 ## I percentili
 
-Ricordiamo che l’utilizzo della curva normale (e **della trasformazione in punti z**) ha senso in quanto ci aiuta ad identificare percentili e cioè valori che delimitano porzioni note della distribuzione.
+Nel caso di distribuzioni _normali_ gaussiane, la **trasformazione in punti z** può essere utilizzata per identificare percentili.
 
 ![](Figures/gaussiana.png){width="80%" fig-align="center"}
 
-## Trasformazione in punti z
+## Trasformazione in punteggi z
 
 $$
 Z = \frac{X - M}{SD}
 $$
-Ricordiamo che questa formula è utile perchè ci aiuta a definire percentili (parametrici).
+
+$Z$ punteggio z
+
+$M$ media del campione normativo
+
+$SD$ deviazione standard del campione normativo.
+
+
+## Trasformazione in punti z
+
+è utile perchè ci aiuta a definire percentili (parametrici).
 
 Possiamo usarla in due modi:
 
 - calcoliamo valori z soglia, a partire da media e deviazione standard (di solito, a quale punteggio grezzo corrisponde il punteggio $$z = - 1.64$$, che corrisponde al 5% percentile).
 
 - trasformiamo il punteggio grezzo in punteggio z e da questo determiniamo a che percentile corrisponde.
-
 
 ## Punti z (altro modo di vedere)
 
@@ -351,19 +335,26 @@ Se i punteggi sono **standardizzati** (punti z con Media = 0 e SD = 1):
 - 1.64 delimita il 5% dei punteggi più bassi
 - 1.96 delimita il 2.5% dei punteggi più bassi
 
-A volte si trova “2 deviazioni standard”. Non è altro che un altro numero (sempre arbitrario) per delimitare preformance bassa, sempre arbitraria (ma più facile da ricordare).
-
 ## I percentili non parametrici
 
 E nel caso di distribuzione non normali?
 
-Si possono utilizzare **percentili non parametrici**.
+Si possono utilizzare modi **non parametrici** per calcolare i percentili.
 
-(per esempi vedere codice R associato per potenziale impatto di non normalità, specie con un marcato effetto soffitto.)
 
-## La distribuzione di riferimento
+## Basta riferirsi ai percentili?
 
-Questa definizione di percentili può essere però approfondita concentrandoci su un punto critico su cui in precedenza abbiamo glissato e cioè che i valori sono **relativi alla distribuzione di riferimento**.
+Quali sono i possibili limiti?
+
+
+## Una soluzione
+
+Una possibile soluzione è quella di considerare il confronto con una distribuzione a tutti gli effetti un _test statistico_.
+
+Questo ci permetterebbe di fare un'inferenza statistica e da questa una possibile inferenza clinica.
+
+
+## Un po' di formalità
 
 Possiamo quindi specificare meglio la formula così, condizionando esplicitamente a $N$: l'evento "il soggetto proviene dalla popolazione di riferimento (sani)".
 $$
@@ -373,28 +364,6 @@ $$
 $x_k$ è il valore per cui ci si attende una probabilità $k$ che un punteggio $O$ sia uguale o inferiore a $x_k$, assumendo che la persona provenga da una popolazione di persone “sane” (cioè senza deficit cognitivo).
 
 Infatti se la persona venisse da altre popolazioni (es. pazienti con Alzheimer) i valori attesi potrebbero essere diversi.
-
-## Analogia con ipotesi nulla in test statistico
-
-\small
-Da notare che questa formulazione è del tutto analoga, nella sua logica, a quella usata per definire un **valore critico** in un test statistico, e a quella del **p-value**.
-
-\vspace{1em}
-Valore critico (definito *a priori*, sulla distribuzione della statistica test sotto $H_0$):
-$$
-t_{crit} : P(T \le t_{crit} \mid H_0) = \alpha
-$$
-
-\vspace{0.5em}
-p-value (calcolato *dopo* aver osservato $t_{oss}$, il valore della statistica test nel nostro campione):
-$$
-p = P(T \le t_{oss} \mid H_0)
-$$
-
-\vspace{0.5em}
-dove $T$ è la variabile casuale "statistica test sotto $H_0$" e $t_{oss}$ il suo valore osservato. Si rifiuta $H_0$, equivalentemente, se $t_{oss} \le t_{crit}$ oppure se $p \le \alpha$.
-
-$H_0$ dipende dal tipo di test, ma nel caso di un confronto fra campioni indica che i due campioni che sono stati confrontati con il t-test provengono dalla stessa popolazione.
 
 ## Esperimento mentale
 
@@ -457,11 +426,6 @@ Usare il confronto con punti z come test statistico implica dunque due errori:
 
 Al di là della correttezza formale, questo comporta differenze nella probabilità di errore di classificazione, che senza una statistica appropriata resta ignota.
 
-## Nota confortante
-
-In realtà è da riconoscere che con campioni sufficientemente ampi (>100) e se la distribuzione è realmente normale e con deviazione standard non troppo elevate, gli errori non sono drammatici.
-
-(Questa è una considerazione da prendere *cum grano salis*, a partire da simulazioni dello script 10 associato a queste slides)
 
 ## t-test di Crawford e Howell
 
@@ -563,13 +527,13 @@ Il residuo ci dice se quella persona ha ottenuto un punteggio migliore o peggior
 
 ```r
 # stima il modello di regressione
-modello <- lm(punteggio ~ eta, data = dati_normativi)
+mod <- lm(score ~ age + education + sex, data = norm_data)
 
 # punteggio previsto dal modello per ciascun soggetto
-dati_normativi$previsto <- fitted(modello)
+fitted(mod)
 
 # residuo = punteggio osservato - punteggio previsto
-dati_normativi$residuo <- residuals(modello)
+residuals(mod)
 ```
 
 \vspace{1em}
@@ -634,6 +598,13 @@ In genere il cut-off è definito (arbitrariamente) come il valore che delimita i
 ![](Figures/Healthy_vs_Pathological.png){width="50%" fig-align="center"}
 
 *Non sapendo dove si collochino le prestazioni patologiche (deficit o danno), mettiamo una soglia arbitraria che delimita il 5% più basso (area grigia), assumendo che deficit e patologia siano da qualche parte a sinistra.*
+
+## Cut-off è punti z
+
+Il punteggio -1.64 delimita il 5% dei punteggi peggiori. Indica un punteggio -1.64 Deviazioni standard sotto la media (che è 0).
+
+Talvolta viene anche usato “2 deviazioni standard”. Non è altro che un altro numero (sempre arbitrario) per delimitare preformance bassa, sempre arbitraria (ma più facile da ricordare).
+
 
 ## Il paradosso del mucchio
 
