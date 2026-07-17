@@ -45,13 +45,14 @@ header-includes:
 \begin{columns}
 \column{0.8\textwidth}
 
-I test neuropsicologici hanno, nella pratica clinica, alcuni scopi principali:
+I test neuropsicologici hanno, nella pratica clinica, alcuni scopi principali:\\
 
-\vspace{1em}
-- \textbf{Caratterizzare} i deficit cognitivi di un paziente
-- \textbf{Pianificare} la riabilitazione
-- \textbf{Monitorare} nel tempo l'andamento della prestazione cognitiva
-- \textbf{Aiutare} la diagnosi clinica
+\begin{itemize}
+\item \textbf{Caratterizzare} i deficit cognitivi di un paziente
+\item \textbf{Pianificare} la riabilitazione
+\item \textbf{Monitorare} nel tempo l'andamento della prestazione cognitiva
+\item \textbf{Aiutare} la diagnosi clinica
+\end{itemize}
 
 \column{0.2\textwidth}
 
@@ -61,9 +62,6 @@ I test neuropsicologici hanno, nella pratica clinica, alcuni scopi principali:
 \end{columns}
 ```
 
-\vspace{1em}
-\footnotesize Questo punto verrà ripreso più avanti nel corso.
-
 ## Una valutazione neuropsicologica
 
 ```{=latex}
@@ -71,9 +69,9 @@ I test neuropsicologici hanno, nella pratica clinica, alcuni scopi principali:
 \includegraphics[width=0.55\textwidth]{Figures/Valutazione_Neuropsi_ChatGPT.png}
 \end{figure}
 
-\begin{flushright}
-\emph{Una valutazione neuropsicologica secondo ChatGPT}
-\end{flushright}
+\begin{center}
+\small \emph{Una valutazione neuropsicologica secondo ChatGPT}
+\end{center}
 ```
 
 ## Misurazione
@@ -322,7 +320,10 @@ Il legame (mai diretto) tra costrutto, comportamento e punteggio nasconde in neu
 
 ## Invarianza di misura: una definizione
 
-L'**invarianza di misura** indica che le proprietà psicometriche di un test (es. la relazione tra costrutto e punteggio) restano costanti tra gruppi diversi (es. sani vs. pazienti, oppure gruppi di età diversa) [CITAZIONE DA CONFERMARE].
+L'**invarianza di misura** indica che le proprietà psicometriche di un test (es. la relazione tra costrutto e punteggio) restano costanti tra gruppi diversi (es. sani vs. pazienti, oppure gruppi di età diversa) 
+
+Putnick, D. L., & Bornstein, M. H. (2016). Measurement invariance conventions and reporting: The state of the art and future directions for psychological research. Developmental Review, 41, 71–90. https://doi.org/10.1016/j.dr.2016.06.004
+
 
 <!--
 Candidate citations (choose one):
@@ -334,127 +335,6 @@ Horn, J. L., & McArdle, J. J. (1992). A practical and theoretical guide to measu
 
 **2) Le funzioni cognitive causa di una data performance possono essere specifiche del paziente.** L'assunzione implicita è che le funzioni cognitive che causano una certa performance siano le stesse indipendentemente da chi svolge il test. Nei pazienti con danno, invece, le funzioni cognitive sottostanti a una stessa performance osservata possono essere specifiche del singolo profilo di danno: una violazione *attesa* (non solo accidentale) di invarianza di misura, diversa da quella "tra gruppi noti" del punto 1.
 
-# Teoria dei test: CTT e IRT
-
-## Teoria dei test
-
-\begin{center}
-  \textbf{Classical Test Theory}
-\end{center}
-
-La \textbf{Teoria Classica dei test (Classical Test Theory, CTT)} È un insieme di concetti di teoria di psicometria legati allo sviluppo di test psicologici. Spesso si basa su principi di misurazione come quello di Stevens
-\pause
-
-Fanno parte della CTT, concetti come Validità e Affidabilità.
-\pause
-
-La maggior parte dei test neuropsicologici, implicitamente o esplicitamente, utilizzano principi e assunti di CTT.
-
-```{=latex}
-\url{https://en.wikipedia.org/wiki/Classical_test_theory}
-```
-
-## Teoria dei test
-
-\begin{center}
-  \textbf{Classical Test Theory}
-\end{center}
-
-Il principio cardine della CTT è la seguente formula:
-\begin{center}
-$X = T + E$
-\end{center}
-\pause
-
-$X$ = punteggio osservato
-
-$T$ = punteggio vero
-
-$E$ = errore
-\pause
-\vspace{1.5em}
-
-L'errore è indipendente dal punteggio vero.
-
-## Teoria dei test
-
-\begin{center}
-  \textbf{I Limiti della Classical Test Theory}
-\end{center}
-
-La Teoria classica dei test ha dei problemi intrinseci. Ne citiamo alcuni:
-\pause
-
-- Abilità del soggetto e complessità/difficoltà del test sono confuse
-
-- Errore e punteggio vero non sono spesso realmente indipendenti
-
-- Problemi nella definizione di forme parallele (studieremo questo quando vedremo cambiamenti nel tempo)
-
-\pause
-*Consideriamo il possibile errore in un punteggio di Linguaggio Figurato 1 pari a 8, 0, oppure di 15. L’errore è veramente indipendente dal punteggio vero?*
-
-## Teoria dei test
-
-\begin{center}
-  \href{https://github.com/giorgioarcara/stat_forensic_neuropsy/blob/main/code/02_True_score.R}{\underline{Esempio script CTT}}
-\end{center}
-
-## Teoria dei test
-
-\begin{center}
-  \textbf{Item Response Theory}
-\end{center}
-
-La Item Response Theory è una famiglia di metodi più avanzati che cercano di modellare in maniera indipendente la difficoltà del task e le abilità del soggetto.
-
-Tra I modelli di IRT I più famosi (storicamente) sono I modelli di Rasch, che permettono I modellare test in cui gli item hanno risposta sì/no.
-\pause
-
-I modelli di IRT hanno un’importante assunzione che spesso è critica per test neuropsicologici e cioè l’unidimensionalità del costrutto.
-\pause
-
-Si assume che il costrutto misurato dal test sia rappresentabile lungo un’unica dimensione (non sia la combinazione di più costrutti).
-
-## Teoria dei test
-
-\begin{center}
-  \textbf{Item Response Theory}
-\end{center}
-
-Esempio formula Modelli di Rasch (la cito per completezza):
-\vspace{2em}
-
-```{=latex}
-\small
-\begin{align}
-  \Pr(X_{ni}=1 \mid \theta_n, \beta_i)
-  &= \frac{\exp(\theta_n - \beta_i)}{1 + \exp(\theta_n - \beta_i)}
-  \label{eq:rasch_prob}
-  \\
-  \Pr(X_{ni}=0 \mid \theta_n, \beta_i) &= \frac{1}{1 + \exp(\theta_n - \beta_i)}
-  \label{eq:rasch_prob0}
-\end{align}
-
-$\theta$ = ability
-$\beta$ = difficulty parameter
-```
-
-\vspace{2em}
-
-[[https://www.publichealth.columbia.edu/research/population-health-methods/item-response-theory]{.underline}](https://www.publichealth.columbia.edu/research/population-health-methods/item-response-theory)
-
-## Teoria dei test
-
-\begin{center}
-  \textbf{Item Response Theory – Rasch models}
-\end{center}
-
-\begin{figure}
-  \includegraphics[width=0.7\textwidth]{Figures/Rasch_matrix.png}
-\end{figure}
-
-Per costruire modelli di Rasch/IRT si parte spesso da matrici di questo tipo.
 
 ## Teoria dei test
 
