@@ -271,11 +271,11 @@ La formula precedente è una semplificazione: vale con un'uguaglianza esatta sol
 **Definizione formale di percentile (quantile)**, valida anche per distribuzioni **discrete** (come i punteggi ai test, tipicamente interi):
 
 $$
-x_k = Q_O(k) = \inf\{x \in \mathbb{R} : F_O(x) \ge k\}
+x_p = Q(p) = \inf\{x \in \mathbb{R} : p \le F(x)\}
 $$
 
 \vspace{1em}
-Con distribuzioni discrete, $F_O$ ha dei "salti": spesso **non esiste alcun valore $x$ per cui $P(O \le x)$ sia esattamente $k$** (es. 0.05). La definizione formale, basata su un estremo inferiore (infimum) e non su un'uguaglianza esatta, gestisce correttamente questo caso.
+Con distribuzioni discrete, $F$ ha dei "salti": spesso **non esiste alcun valore $x$ per cui $P(O \le x)$ sia esattamente $p$** (es. 0.05). La definizione formale, basata su un estremo inferiore (infimum) e non su un'uguaglianza esatta, gestisce correttamente questo caso.
 
 ## I percentili
 
@@ -287,7 +287,7 @@ $$
 $$
 \normalsize 
 
-Questa è la stessa quantità $k$ (moltiplicata per 100) della definizione data sopra: $P(O \le x_k) = k$.
+Questa è la stessa quantità $k$ (moltiplicata per 100) della definizione data sopra: $P(O \le x_p) = p$.
 
 L’utilizzo della curva normale o l'uso di percentili non parametrici rappresentano diversi metodi per identificare i valori che delimitano queste percentuali.
 
@@ -377,7 +377,7 @@ Se vi dicessi che ho calcolato questa soglia da un campione con 20 soggetti o co
 
 **Considerare una soglia per inferenze di tipo clinico non può prescindere dal fare riflessioni sulla rappresentatività del mio campione rispetto alla popolazione e su quanto i risultati sono generalizzabili.**
 
-## Campione o popolazione (1/2)
+## Campione o popolazione (1/3)
 
 Sebbene i percentili siano calcolabili sia per un campione sia per una popolazione, nella valutazione neuropsicologica l'interesse è sempre, implicitamente, alla **popolazione**: non mi interessa come si colloca il paziente rispetto ai miei specifici soggetti sani, ma rispetto alla popolazione di sani in generale.
 
@@ -388,13 +388,14 @@ Questo vale soprattutto con campioni normativi di dimensioni limitate: la mia cl
 \small
 Da notare: il percentile non è di per sé una probabilità. Percentili e z-scores si avvicinano a una probabilità (in termini di popolazione) solo con campioni grandi e assunti rispettati (es. normalità della distribuzione).
 
-## Campione o popolazione (2/2)
+## Campione o popolazione (2/3)
 
 ![](Figures/normativi_percentili.png){width="50%" fig-align="center"}
 
-La figura mostra tre ipotetici campioni (n=25) estratti dalla stessa popolazione: il numero indica il cut-off vero (5%) e quello ottenuto in ciascun campione — diverso ogni volta.
+La figura mostra tre ipotetici campioni (n=25) estratti dalla stessa popolazione: il numero indica il cut-off vero (5%) e quello ottenuto in ciascun campione, diverso ogni volta.
 
-\vspace{1em}
+## Campione o popolazione? (3/3)
+
 Possiamo però stimare il valore della popolazione a partire dal campione, associando alla stima un margine di errore noto: è il compito della **statistica inferenziale**.
 
 ## Confronti con valori soglia e statistica inferenziale (1/2)
