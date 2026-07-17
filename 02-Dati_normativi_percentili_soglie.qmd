@@ -1,0 +1,689 @@
+---
+title: ""
+author: "Giorgio Arcara"
+date: ""
+#format: revealjs
+format:
+  beamer:
+    theme: metropolis
+    keep-tex: true
+    pdf-engine: xelatex  # or xelatex
+    # mathfont: "Latin Modern Math"
+incremental: false
+header-includes:
+  \setbeamerfont{title}{size=\large}
+  \usepackage{hyperref}
+  \setbeamertemplate{footline}[frame number]
+  \usepackage{tikz}
+  \usetikzlibrary{positioning, arrows.meta}
+
+---
+
+<!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
+
+::: {.content-visible when-format="beamer"}
+```{=latex}
+% TITLE SLIDES
+\title{Misurazioni Neuropsicologiche\\ \vspace{1em} \emph{2. Soglie e dati normativi}}
+\author{Giorgio Arcara,\\ Università di Padova \\ IRCCS San Camillo, Venezia}
+
+\titlegraphic{
+
+\vspace*{7cm}
+\includegraphics[scale=0.15]{Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
+\hfill \includegraphics[scale=0.15]{Figures/CC_license_3_0.png}
+}
+\maketitle
+```
+:::
+
+
+# Dal punteggio al dato di riferimento
+
+## Significato dei punteggi
+
+Supponiamo di somministrare il MoCA (Montreal Cognitive Assessment) a un paziente e di ottenere un punteggio di 22/30. Cosa ci dice questo punteggio?
+\pause
+\begin{center}
+  \textbf{I punteggi ai test in sé sono poco informativi a fini clinici}
+\end{center}
+\pause
+
+## Dal punteggio grezzo a un dato interpretabile
+```{=latex}
+\begin{center}
+\begin{figure}
+\includegraphics[scale=0.06]{Figures/triangle.png}
+\end{figure}
+\end{center}
+```
+
+I punteggi grezzi sono poco informativi: il loro range è spesso arbitrario, e un punteggio alto o basso dipende anche da quanto il test è difficile (o facile).
+
+\textbf{Per trarre informazioni utili, i punteggi si confrontano con dati di riferimento}, seguendo tipicamente **tre step**: dal punteggio grezzo al **percentile** (la percentuale di popolazione che ottiene quel punteggio), fino al confronto con una **soglia**.
+
+## I tre step per interpretare un punteggio
+
+```{=latex}
+\begin{center}
+\begin{tikzpicture}[
+  box/.style={draw, rectangle, rounded corners, minimum width=3cm, minimum height=1cm, align=center},
+  arrow/.style={-{Stealth}, thick}
+]
+\node[box] (grezzo) {Punteggio\\grezzo};
+\node[box, right=1.2cm of grezzo] (perc) {Percentile};
+\node[box, right=1.2cm of perc] (soglia) {Confronto con\\una soglia};
+
+\draw[arrow] (grezzo) -- (perc);
+\draw[arrow] (perc) -- (soglia);
+\end{tikzpicture}
+\end{center}
+```
+
+Vedremo questi tre step uno alla volta: cosa sono i **dati normativi** usati come riferimento, come si calcola un **percentile**, e infine come (e perché) si arriva a una **soglia** decisionale.
+
+## Esempio di soglie riportate in tabelle
+
+Spesso il risultato finale di questo percorso è riportato direttamente in tabelle, indipendentemente dal metodo usato per calcolarlo. Di recente sono sempre più diffusi software che trasformano i punteggi e li confrontano automaticamente con le soglie.
+
+![](Figures/cutoff_humor.png){width="90%" fig-align="center"}
+\begin{flushright}
+  Da APACS (Arcara \& Bambini, 2016)
+\end{flushright}
+
+# Cos'è un dato normativo
+
+## Cosa sono i dati normativi
+
+I dati normativi sono dati raccolti su soggetti che assumiamo siano _normali_. Servono a stabilire quali prestazioni possiamo considerare normali (attese) e quali no.
+
+## Diversi concetti di normalità
+
+I soggetti che fanno parte dei dati normativi assumiamo che siano normali, nel senso di autonomi nella vita quotidiana e in assenza di deficit cognitivi conclamati.
+
+Quando confrontiamo un punteggio con i dati normativi e concludiamo che è nella norma, facciamo un'inferenza statistica a partire dai punteggi.
+
+Spesso in neuropsicologia si fa riferimento anche alla curva normale (gaussiana), una distribuzione con proprietà statistiche note e utili.
+
+\begin{center}
+  \textbf{Sono quindi tre concetti diversi di «normalità»: clinico, statistico, e legato alla curva gaussiana.}
+\end{center}
+
+## Il concetto di normalità nei dati normativi
+
+\small
+Cosa significa esattamente "normali"? In genere: autonomi nella vita quotidiana, privi di patologie conclamate che possono influenzare la cognizione (es. malattie neurodegenerative, schizofrenia, disturbi del neurosviluppo).
+
+In certi casi il criterio è più stringente (es. sopra i 65 anni, esami che escludano segni di demenza). A volte si richiede anche un testing cognitivo (es. MoCA > 20): un criterio insidioso, perché un test impreciso può introdurre bias o circolarità nei dati normativi — ma senza alcun filtro il rischio è includere persone con patologie degenerative in corso.
+
+## Tre aspetti fondamentali sui dati normativi 1/3
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+\textbf{I dati normativi servono per stimare e classificare la prestazione che ci aspetterebbe da un certo individuo tramite i dati di persone che sono simili all’individuo da valutare.}
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Tre aspetti fondamentali sui dati normativi 2/3
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+
+\textbf{Come un punteggio si colloca rispetto alla distribuzione dei dati normativi può avere significato o importanza diversa a seconda del contesto e della domanda.}
+\vspace{1em}
+
+\small
+a) Nel caso di indagine di un disturbo dello sviluppo una performance molto bassa è interessante in sé, indicandoci un \textbf{deficit}.
+
+b) nel caso di sospetto di malattia o disturbo acuto nell’adulto viene usata in genere per fare un’inferenza su un peggioramento, quindi un \textbf{danno}, nello stato cognitivo del paziente rispetto ad un evento che può avere una precisa collocazione temporale (es. ictus) oppure no (es. un deterioramento con un decorso legato alla malattia di Alzheimer).
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Tre aspetti fondamentali sui dati normativi 3/3
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+
+\textbf{L’interesse nel deficit o nel danno dipende dal contesto e dalla domanda:}
+\vspace{1em}
+
+\small
+a) nel caso di una valutazione per stabilire un danno in seguito ad un evento (es. disturbi cognitivi in seguito ad un trauma cranico), il confronto con dati normativi è utile per inferire un danno (inteso come peggioramento rispetto a condizione pre-esistente)
+
+b) in caso di valutazioni per valutare il livello del paziente indipendentemente dalla causa, allora è interessante usare i dati normativi per una classificazione della performance in sé.
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Raccolta di dati normativi
+```{=latex}
+\begin{center}
+\begin{tikzpicture}
+
+% --- Your figure -------------------------------------------------------
+\node (img) at (0,0) {\includegraphics[width=0.7\textwidth]{Figures/dati_normativi.png}};
+
+% Top-left
+\only<1>{\fill[white] (-3.5,3) rectangle (0,0);}
+
+% Top-right
+\only<1-2>{\fill[white] (-0.2,3) rectangle (3,0);}
+
+% Bottom-left
+\only<1-3>{\fill[white] (-3.5,0) rectangle (0,-3);}
+
+% Bottom-right
+\only<1-4>{\fill[white] (-0.2,0) rectangle (3,-3);}
+
+
+\end{tikzpicture}
+\end{center}
+\onslide<5> % <-- forces slide 5 to exist
+%La linea verticale indica il \textbf{cut-off di normalità}.
+
+\pause
+```
+
+## Aspetti da considerare nell'utilizzo dei dati normativi
+
+Come principio generale, per stimare correttamente la prestazione del mio soggetto (e rendere sensato il confronto con i dati normativi), i dati normativi devono essere rappresentativi. Di seguito sono esaminate alcune comuni domande.
+
+## Aspetti da considerare nell'utilizzo dei dati normativi (1)
+
+**1) Utilizzare dati normativi aggiornati**
+\vspace{2em}
+
+Dati normativi raccolti molti anni fa possono non essere adeguati. Questo è legato al cosiddetto Flynn effect (Flynn, 1987; Williams, 2013)
+
+## Aspetti da considerare nell'utilizzo dei dati normativi (2)
+
+**2) Specie per stimare il danno è importante che gli individui dei campioni normativi siano simili all’individuo da valutare (campione ampio, ma non simile non è utile).**
+\vspace{2em}
+
+Un campione molto numeroso ma poco rappresentativo non è utile.
+
+## Aspetti da considerare nell'utilizzo dei dati normativi (3)
+
+```{=latex}
+\begin{columns}
+\column{0.8\textwidth}
+\small
+\textbf{3) Utilizzare dati normativi paese-specifici.}
+\vspace{1em}
+
+Non basta tradurre un test per renderlo utilizzabile in un altro paese: oltre alla lingua, contano fattori socioculturali che i dati normativi devono riflettere. Stessa età e scolarità non bastano a rendere un soggetto comparabile.
+
+L’iniziale diffusione del \textbf{MoCA} (Nasreddine et al., 2005) in Italia, con dati normativi non paese-specifici, è un caso lampante di questa prassi scorretta.
+
+\column{0.2\textwidth}
+
+\begin{figure}
+\includegraphics[scale=0.05]{Figures/triangle.png}
+\end{figure}
+\end{columns}
+```
+
+## Riepilogo: dati normativi
+
+\small
+- I dati normativi servono per stimare la prestazione attesa da un individuo, usando i dati di persone simili a lui.
+- Il confronto con dati normativi serve per inferire un possibile deficit (disturbo funzionale) o danno (peggioramento): il metodo usato è spesso lo stesso, cambia l'interpretazione.
+- Per usare bene i dati normativi occorre collocare il punteggio rispetto alla distribuzione di riferimento: il prossimo passo è proprio il calcolo del **percentile**.
+
+# Percentili
+
+## Percentili: cosa vedremo
+
+Il percentile è il modo per collocare un punteggio rispetto ai dati normativi. Per farlo bene servono alcuni passaggi:
+
+1. Come si definisce e si calcola un percentile (punti z, percentili non parametrici)
+2. Perché campione e popolazione non sono la stessa cosa, e come tenerne conto (t-test di Crawford)
+3. Come la regressione supera i limiti della suddivisione in fasce
+
+\vspace{1em}
+\footnotesize I Punteggi Equivalenti, che si basano proprio su questi concetti, saranno il tema di un blocco dedicato.
+
+## Valori soglia e probabilità
+
+Il concetto di valore soglia è centrale nella statistica applicata alla neuropsicologia clinica: serve a determinare quanto una prestazione è probabile o improbabile.
+
+L'improbabilità è legata al concetto di deficit o danno cognitivo, operazionalizzato come una prestazione insolita, assumendo che la persona sia normale.
+
+\vspace{1em}
+L'uso di probabilità in ambito clinico è però insidioso: è facile sbagliarne l'interpretazione. Formalizzare in modo rigoroso aiuta ad evitare gli effetti di una terminologia vaga.
+
+## I valori utili per la clinica
+
+Definiamo un valore soglia utile alla classificazione clinica come il punteggio $x_k$ al di sotto del quale c’è una probabilità nota $k$ di osservare il punteggio $O$ (nei test in cui un punteggio basso indica una performance peggiore).
+
+$$
+\small
+x_k : P(O \le x_k) = k
+$$
+
+dove $O$ è il punteggio (variabile casuale) nella _popolazione_ di riferimento.
+
+es. con $k$ = 0.05: $x_{0.05}$ è il valore tale che $P(O \le x_{0.05}) = 0.05$ (il 5% di probabilità di osservare, in un soggetto sano, una prestazione uguale o inferiore a $x_{0.05}$; se il paziente ottiene un punteggio così basso, inferiamo un danno).
+
+\vspace{0.5em}
+\footnotesize Perché proprio il 5%? Ne parliamo nell'ultima parte, dedicata alle soglie.
+
+## I valori utili per la clinica: un confronto con la definizione formale
+
+\small
+La formula precedente è una semplificazione: vale con un'uguaglianza esatta solo se la funzione di ripartizione (CDF) di $O$, $F_O(x) = P(O \le x)$, è continua.
+
+**Definizione formale di percentile (quantile)**, valida anche per distribuzioni **discrete** (come i punteggi ai test, tipicamente interi):
+
+$$
+x_k = Q_O(k) = \inf\{x \in \mathbb{R} : F_O(x) \ge k\}
+$$
+
+\vspace{1em}
+Con distribuzioni discrete, $F_O$ ha dei "salti": spesso **non esiste alcun valore $x$ per cui $P(O \le x)$ sia esattamente $k$** (es. 0.05). La definizione formale, basata su un estremo inferiore (infimum) e non su un'uguaglianza esatta, gestisce correttamente questo caso: è il motivo per cui, in pratica, il cut-off si approssima al percentile più vicino disponibile nei dati.
+
+## I percentili
+
+Più precisamente, un **percentile** è la percentuale del campione (o della distribuzione) di riferimento che ottiene un punteggio pari o inferiore a un dato punteggio $x$:
+
+$$
+\text{percentile}(x) = \frac{\#\{\text{soggetti del campione normativo con punteggio} \le x\}}{N} \times 100
+$$
+
+Questa è la stessa quantità $k$ (moltiplicata per 100) della definizione data sopra: $P(O \le x_k) = k$.
+
+L’utilizzo della curva normale o di percentili non parametrici rappresentano diversi metodi per identificare queste percentuali.
+
+L’uso di punti z non è altro che un metodo (parametrico) che semplifica l’identificazione di questi percentili.
+
+## I percentili
+
+Ricordiamo che l’utilizzo della curva normale (e **della trasformazione in punti z**) ha senso in quanto ci aiuta ad identificare percentili e cioè valori che delimitano porzioni note della distribuzione.
+
+![](Figures/gaussiana.png){width="80%" fig-align="center"}
+
+## Trasformazione in punti z
+
+$$
+Z = \frac{X - M}{SD}
+$$
+Ricordiamo che questa formula è utile perchè ci aiuta a definire percentili (parametrici).
+
+Possiamo usarla in due modi:
+
+- calcoliamo valori z soglia, a partire da media e deviazione standard (di solito, a quale punteggio grezzo corrisponde il punteggio $$z = - 1.64$$, che corrisponde al 5% percentile).
+
+- trasformiamo il punteggio grezzo in punteggio z e da questo determiniamo a che percentile corrisponde.
+
+
+## Punti z (altro modo di vedere)
+
+\small
+Quando si trasformano dei punteggi in punti z ci sono alcuni punti che risultano di importanza.
+
+Se i punteggi **non** sono standardizzati (non trasformo in punti z prima).
+
+- Media – 1.64 * SD delimita il 5% dei punteggi più bassi
+- Media - 1.96 * SD delimita il 2.5% dei punteggi più bassi
+
+Se i punteggi sono **standardizzati** (punti z con Media = 0 e SD = 1):
+
+- 1.64 delimita il 5% dei punteggi più bassi
+- 1.96 delimita il 2.5% dei punteggi più bassi
+
+A volte si trova “2 deviazioni standard”. Non è altro che un altro numero (sempre arbitrario) per delimitare preformance bassa, sempre arbitraria (ma più facile da ricordare).
+
+## I percentili non parametrici
+
+E nel caso di distribuzione non normali?
+
+Si possono utilizzare **percentili non parametrici**.
+
+(per esempi vedere codice R associato per potenziale impatto di non normalità, specie con un marcato effetto soffitto.)
+
+## La distribuzione di riferimento
+
+Questa definizione di percentili può essere però approfondita concentrandoci su un punto critico su cui in precedenza abbiamo glissato e cioè che i valori sono **relativi alla distribuzione di riferimento**.
+
+Possiamo quindi specificare meglio la formula così, condizionando esplicitamente a $N$: l'evento "il soggetto proviene dalla popolazione di riferimento (sani)".
+$$
+\small
+x_k : P(O \le x_k \mid N) = k
+$$
+$x_k$ è il valore per cui ci si attende una probabilità $k$ che un punteggio $O$ sia uguale o inferiore a $x_k$, assumendo che la persona provenga da una popolazione di persone “sane” (cioè senza deficit cognitivo).
+
+Infatti se la persona venisse da altre popolazioni (es. pazienti con Alzheimer) i valori attesi potrebbero essere diversi.
+
+## Analogia con ipotesi nulla in test statistico
+
+\small
+Da notare che questa formulazione è del tutto analoga, nella sua logica, a quella usata per definire un **valore critico** in un test statistico, e a quella del **p-value**.
+
+\vspace{1em}
+Valore critico (definito *a priori*, sulla distribuzione della statistica test sotto $H_0$):
+$$
+t_{crit} : P(T \le t_{crit} \mid H_0) = \alpha
+$$
+
+\vspace{0.5em}
+p-value (calcolato *dopo* aver osservato $t_{oss}$, il valore della statistica test nel nostro campione):
+$$
+p = P(T \le t_{oss} \mid H_0)
+$$
+
+\vspace{0.5em}
+dove $T$ è la variabile casuale "statistica test sotto $H_0$" e $t_{oss}$ il suo valore osservato. Si rifiuta $H_0$, equivalentemente, se $t_{oss} \le t_{crit}$ oppure se $p \le \alpha$.
+
+$H_0$ dipende dal tipo di test, ma nel caso di un confronto fra campioni indica che i due campioni che sono stati confrontati con il t-test provengono dalla stessa popolazione.
+
+## Esperimento mentale
+
+Supponiamo di avere dei dati normativi e di sapere che la soglia che delimita il punto $z$ -1.64 (5%) è 4, oppure che il percentile 5% è 4.
+
+Supponiamo di osservare una prestazione di 3.
+
+La consideremmo come deficitaria?
+
+Se vi dicessi che ho calcolato questa soglia da un campione con 20 soggetti o con 200 soggetti, ci fideremmo alla stessa maniera della soglia?
+
+**Considerare una soglia per inferenze di tipo clinico non può prescindere dal fare riflessioni sulla rappresentatività del mio campione rispetto alla popolazione e su quanto i risultati sono generalizzabili.**
+
+## Campione o popolazione (1/2)
+
+Sebbene i percentili siano calcolabili sia per un campione sia per una popolazione, nella valutazione neuropsicologica l'interesse è sempre, implicitamente, alla **popolazione**: non mi interessa come si colloca il paziente rispetto ai miei specifici soggetti sani, ma rispetto alla popolazione di sani in generale.
+
+\vspace{1em}
+Questo vale soprattutto con campioni normativi di dimensioni limitate: la mia classificazione non dovrebbe dipendere dallo specifico campione usato, ma valere per (quasi) tutti i possibili campioni normativi.
+
+\vspace{1em}
+\small
+Da notare: il percentile non è di per sé una probabilità. Percentili e z-scores si avvicinano a una probabilità (in termini di popolazione) solo con campioni grandi e assunti rispettati (es. normalità della distribuzione).
+
+## Campione o popolazione (2/2)
+
+![](Figures/normativi_percentili.png){width="50%" fig-align="center"}
+
+La figura mostra tre ipotetici campioni (n=25) estratti dalla stessa popolazione: il numero indica il cut-off vero (5%) e quello ottenuto in ciascun campione — diverso ogni volta.
+
+\vspace{1em}
+Possiamo però stimare il valore della popolazione a partire dal campione, associando alla stima un margine di errore noto: è il compito della **statistica inferenziale**.
+
+## Confronti con valori soglia e statistica inferenziale (1/2)
+
+Una statistica inferenziale permette di fare enunciati precisi sulla probabilità di errore riferiti alla **popolazione** da cui il campione è estratto, non al campione stesso.
+
+\vspace{1em}
+Concretamente, se calcolo il cut-off usando la soglia -1.64 del punteggio standardizzato (senza un test statistico appropriato):
+
+1) non so quanto la mia classificazione si generalizzerebbe ad altri campioni.
+
+2) non so quale sia la probabilità di errore della mia classificazione, immaginando infinite ripetizioni.
+
+## Nota statistica
+
+Usare il confronto con punti z come test statistico è noto come **test-z** e può essere un test statistico, ma assume:
+
+- di **stare confrontando una media campionaria con una popolazione di riferimento**
+- di conoscere la **varianza della popolazione** (non del campione).
+
+Con varianza non nota si dovrebbe usare il t-test (con la distribuzione t che si approssima a normale per campioni grandi).
+
+## Confronti con valori soglia e statistica inferenziale (2/2)
+
+Usare il confronto con punti z come test statistico implica dunque due errori:
+
+1) trattare il *singolo individuo come una media campionaria*
+2) trattare i dati normativi (un campione) come se fossero la popolazione.
+
+Al di là della correttezza formale, questo comporta differenze nella probabilità di errore di classificazione, che senza una statistica appropriata resta ignota.
+
+## Nota confortante
+
+In realtà è da riconoscere che con campioni sufficientemente ampi (>100) e se la distribuzione è realmente normale e con deviazione standard non troppo elevate, gli errori non sono drammatici.
+
+(Questa è una considerazione da prendere *cum grano salis*, a partire da simulazioni dello script 10 associato a queste slides)
+
+## t-test di Crawford e Howell
+
+Il t-test di Crawford & Howell (1998)[^1] è una modificazione del t-test che permette di confrontare un caso singolo rispetto ad un campione, ma con inferenza rispetto a una popolazione, con errore noto.
+
+\underline{Il test funziona anche con campioni piccoli (~10 soggetti).}
+
+[^1]: in realtà il test è di Sokhal e Rohlf (1995). Crawford & Howell hanno avuto il merito di diffonderlo per I
+single-case in contesto di neuropsicologia.
+
+## t-test di Crawford & Howell
+
+$$
+t = \frac{X_i - \bar{X_2}}{s_2\sqrt{\frac{N_2+1}{N_2}}}
+$$
+
+\vspace{1em}
+Dove $X_i$ è il punteggio del singolo individuo da testare. $\bar{X_2}$ è la media del campione normativo. $S_2$ è la Deviazione standard del campione normativo ed $N_2$ è la numerosità del campione normativo.
+Confrontando con distribuzione con $N_2-1$ gradi di libertà il risultato restituisce la probabilità (data ipotesi nulla vera) di ottenere valori di $t$ uguali o inferiori a quelli osservati (vedi codice di esempio per dettagli).
+
+
+## Note su t-test di Crawford (1/2)
+
+Il t-test di Crawford si comporta in maniera più appropriata dello z-test o di percentili non parametrici (vedi anche script con simulazioni).
+
+Il t-test di Crawford è anche più robusto in caso di violazione di normalità. Questo significa che anche se una delle assunzioni è violata, tutto sommato il comportamento del test è adeguato.
+
+Il test di Crawford funziona bene (a livello di Errore di 1° tipo) anche per campioni piccoli suggerendo un potenziale utilizzo anche per campioni raccolti ad-hoc (ma attenzione ad Affidabilità e Validità, dovrebbero essere disponibili).
+
+## Note su t-test di Crawford (2/2)
+
+\small
+Il t-test di Crawford mantiene un errore di primo tipo costante al 5% anche per campioni molto piccoli (n=5).
+
+**Questo non vuol dire che bastano campioni piccoli, in realtà è sempre meglio avere campioni numerosi, perchè porteranno cut-off più reali a quelli della popolazione**
+
+(Si veda simulazione in script 11_C&H_test)
+
+La cosa importante è che il t-test di Crawford anche con campioni piccoli mantiene un errore di 1° tipo a livello del 5% (concretamente, per dare un esempio se una persona viene dalla popolazione dei sani, otterremo un valore sotto “cut-off” il 5% delle volte, proprio come è atteso. Nel caso dello z-score la percentuale potrebbe essere 10% o più).
+
+## Confronto con i dati normativi (1/2)
+
+Il test di Crawford, così come l'uso di z-score o percentili, richiede comunque un campione di riferimento: soggetti sani, simili alla persona testata.
+
+**Spesso ci si riferisce a persone con stesso sesso, età e scolarità simili** — una scelta pragmatica, perché sono variabili note per influenzare la performance cognitiva e facili da raccogliere.
+
+## Confronto con i dati normativi (2/2)
+
+\small
+Ma come decidere se un campione è "abbastanza simile"? Es. un paziente con 68 anni e 5 anni di scolarità: uso un campione 65-75 anni con scolarità 3-5, oppure solo soggetti con esattamente 68 anni e 5 di scolarità?
+
+![](Figures/normative_data.png){width="35%" fig-align="center"}
+
+In genere i test riportano tabelle predefinite: spesso non è possibile "comporre" un campione su misura, e occorre basarsi sulle fasce disponibili (alcune combinazioni possono essere poco rappresentate).
+
+## Appropriatezza del campione di riferimento
+
+\small
+È un aspetto metodologico importante e di impatto. Se nel mio campione di riferimento sto usando persone che non sono simili alla persona di cui sto osservando la performance, le mie inferenze (su deficit o su danno) sarebbero distorte.
+
+Es. supponiamo che il mio test fornisce un cut-off che si riferisce all’intervallo 70-80 anni di età.
+
+Supponiamo debba testare un paziente con 70 anni. Vuol dire che nella distribuzione di dati ci saranno persone di 80 anni di età (la cui performance potrebbe essere molto più bassa).
+
+**La stratificazione arbitraria in campioni per le variabili rilevanti (età, scolarità, sesso), ha sempre problemi sulla composizione del campione normativo e la sua rappresentatività.**
+
+## L'idea chiave: modellare invece di suddividere in fasce
+
+Un limite dei metodi visti finora (es. suddivisione in fasce di età/scolarità) è che i confini tra fasce sono sempre in parte arbitrari, e riducono il numero di soggetti disponibili per la stima in ciascuna fascia.
+
+\pause
+\vspace{1em}
+
+Un'alternativa è **modellare direttamente** la relazione tra variabili demografiche e punteggio al test, tramite una **regressione**:
+
+$$
+\hat{Y} = b_0 + b_1 \cdot \text{Età} + b_2 \cdot \text{Scolarità} + \ldots
+$$
+
+\pause
+\vspace{1em}
+
+Il modello fornisce un **punteggio previsto** per qualunque profilo demografico, senza bisogno di soglie arbitrarie tra fasce.
+
+## Il residuo
+
+Per ciascun soggetto, il **residuo** è la differenza tra il punteggio osservato e quello previsto dal modello per il suo specifico profilo demografico:
+
+$$
+\text{residuo}_i = Y_i - \hat{Y}_i
+$$
+
+\pause
+\vspace{1em}
+
+Il residuo ci dice se quella persona ha ottenuto un punteggio migliore o peggiore di quanto atteso, **una volta tenuto conto delle variabili demografiche**. È proprio il residuo, e non il punteggio grezzo, ad essere usato come punteggio "aggiustato" nelle regression-based norms.
+
+## Codice R: stimare il modello e calcolare i residui
+
+```r
+# stima il modello di regressione
+modello <- lm(punteggio ~ eta, data = dati_normativi)
+
+# punteggio previsto dal modello per ciascun soggetto
+dati_normativi$previsto <- fitted(modello)
+
+# residuo = punteggio osservato - punteggio previsto
+dati_normativi$residuo <- residuals(modello)
+```
+
+\vspace{1em}
+\footnotesize Script completo (che genera anche le figure seguenti): \texttt{Scripts/genera\_figure\_residui.R}
+
+## Visualizzare i residui (1/2)
+
+![](Figures/regressione_residuo_singolo.png){width="75%" fig-align="center"}
+
+## Visualizzare i residui (2/2)
+
+![](Figures/regressione_residui_distribuzione.png){width="65%" fig-align="center"}
+
+\small
+Una volta rimosso l'effetto delle variabili demografiche, i residui si distribuiscono attorno allo zero: questa distribuzione è il riferimento normativo per i **punteggi aggiustati**.
+
+## Dai residui alle norme: alcuni metodi
+
+Una volta ottenuti i punteggi aggiustati (i residui), si possono applicare diverse strategie per ricavare norme ed eventuali valori soglia:
+
+\pause
+\vspace{0.5em}
+
+- **z-score sui residui**
+
+\pause
+
+- **percentili non parametrici dei residui**
+
+\pause
+
+- **Crawford \& Garthwaite (2006)**: approccio di regressione al caso singolo
+
+\pause
+
+- **Punteggi Equivalenti (Capitani \& Laiacona)**: metodo basato su limiti di tolleranza non parametrici, molto diffuso in neuropsicologia italiana
+
+\pause
+\vspace{1em}
+\small
+_Il metodo dei Punteggi Equivalenti sarà approfondito in un blocco dedicato._
+
+## Anche la regressione richiede una soglia
+
+Anche modellando la relazione con le variabili demografiche tramite regressione, per arrivare a una decisione clinica (deficit sì/no) resta comunque necessario **fissare una soglia** sul punteggio aggiustato (o sul residuo).
+
+\pause
+\vspace{1em}
+
+Il problema dell'arbitrarietà delle soglie, quindi, non si risolve passando alla regressione: si sposta semplicemente "a valle", dopo aver rimosso l'effetto delle variabili demografiche.
+
+# Soglie: limiti e utilità pragmatica
+
+## Cos'è, in pratica, un cut-off
+
+Il cut-off è un punteggio particolarmente basso, osservato in pochi soggetti normali, che interpretiamo come segno di un deficit/danno cognitivo.
+
+In genere il cut-off è definito (arbitrariamente) come il valore che delimita il **5% dei punteggi più bassi** della distribuzione di riferimento.
+
+## Il cut-off clinico
+
+![](Figures/Healthy_vs_Pathological.png){width="50%" fig-align="center"}
+
+*Non sapendo dove si collochino le prestazioni patologiche (deficit o danno), mettiamo una soglia arbitraria che delimita il 5% più basso (area grigia), assumendo che deficit e patologia siano da qualche parte a sinistra.*
+
+## Il paradosso del mucchio
+
+```{=latex}
+\begin{columns}[c]
+\column{0.5\textwidth}
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{Figures/poor.png}
+\end{figure}
+\column{0.5\textwidth}
+\pause
+\begin{figure}
+\includegraphics[width=0.5\textwidth]{Figures/rich.png}
+\end{figure}
+\end{columns}
+```
+
+## Il paradosso del mucchio
+
+- **Premessa 1**: Se una persona ha 0 monete è "povera"
+
+- **Premessa 2**: Se una persona "povera" guadagna 1 sola moneta, non diventa "ricca"
+
+\pause
+\vspace{1em}
+**Conclusione paradossale**: applicando il principio della Premessa 2 un miliardo di volte, la persona dovrebbe essere ancora "povera".
+
+\pause
+\vspace{1em}
+\small
+_Ogni volta che una variabile continua viene mappata su categorie vaghe, soglie arbitrarie creano casi limite che possono generare paradossi del tipo "del mucchio"._
+
+\vspace{1em}
+\footnotesize Per un approfondimento si veda anche la voce di Wikipedia sul [\underline{paradosso del sorite}](https://it.wikipedia.org/wiki/Paradosso_del_sorite).
+
+## L'utilità pragmatica delle soglie
+
+Il paradosso del mucchio mostra che qualunque soglia su una variabile continua è, in un certo senso, arbitraria.
+
+\pause
+\vspace{1em}
+
+Nonostante questo limite concettuale, avere una soglia decisionale ha una chiara **utilità euristica**: nella pratica clinica dobbiamo comunque decidere, ad un certo punto, se c'è un problema oppure no, e questo porta quasi inevitabilmente a usare soglie categoriali.
+
+\vspace{1em}
+\footnotesize Per un approfondimento sul valore epistemico delle scelte dicotomiche si veda [\underline{questo articolo}](https://journals.sagepub.com/doi/full/10.1177/09593543231160112).
+
+## Riepilogo del blocco
+
+\small
+- Un punteggio grezzo da solo dice poco: va confrontato con **dati normativi** rappresentativi della popolazione di riferimento.
+- Dal confronto nasce un **percentile**: la posizione del punteggio rispetto alla distribuzione di riferimento, tenendo conto che campione e popolazione non coincidono (t-test di Crawford) e che la regressione può superare la suddivisione in fasce.
+- Da ultimo, il percentile si confronta con una **soglia**: per definizione arbitraria (paradosso del mucchio), ma con una chiara utilità pragmatica nel prendere una decisione clinica.
