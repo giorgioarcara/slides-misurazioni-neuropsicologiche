@@ -141,7 +141,7 @@ o semplicemente che ha più memoria?
 
 
 ## Considerazioni sulla definizione di Stevens 2/2
-Nell'esempio appena utilizzato, inoltre, nel test di memoria, la variazione in punti sembra essere molto legata allo strumento utilizzato per valutare la memoria. Ogni test ha punteggi ottenibili diversi (es. il MoCA da 0 a 30, GEMS, un altro test per funzionamento cognitivo generale da 0 a 100).
+Nell'esempio appena utilizzato, inoltre, nel test di memoria, la variazione in punti sembra essere molto legata allo strumento utilizzato per valutare la memoria. Ogni test ha punteggi ottenibili diversi (es. il MoCA ha un punteggio che va da 0 a 30, mentre il GEMS, un altro test per il funzionamento cognitivo generale, ha un punteggio che va da 0 a 100).
 
 \pause
 
@@ -301,7 +301,7 @@ La maggior parte dei test a cui ci faremo riferimento sono quelli di performance
     \draw[-{Stealth}, gray, solid, thick] (others) -- (behaviour);
 
      }
-    \onslide<5>{\node[rectangle, minimum width=3cm, minimum height=1cm, below=2.25cm of construct, xshift=3cm] (Notpossible) {\includegraphics[height=2cm]{Figures/termometro_mercurio.png}};}
+    \onslide<5>{\node[rectangle, minimum width=3cm, minimum height=1cm, below=2.25cm of construct, xshift=3cm] (Notpossible2) {\includegraphics[height=2cm]{Figures/termometro_mercurio.png}};}
 
 
 \end{tikzpicture}
@@ -359,7 +359,7 @@ Un misto di aspetti teorici e praticità
 
 - Sviluppare test con IRT è più costoso (e può andare più facilmente male)
 - spesso i costrutti neuropsicologici violano quasi per definizione l’unidimensionalità.
-- talvolta ad una diversa procedura, comunque IRT e CTT possono portare a risultati molto simili ([Hula et al., 2006](https://doi.org/10.1044/1092-4388(2006/003)))
+- talvolta, nonostante la diversa procedura, IRT e CTT portano a risultati molto simili ([Hula et al., 2006](https://doi.org/10.1044/1092-4388(2006/003)))
 
 ## Teoria dei test
 

@@ -204,7 +204,7 @@ Questo aspetto (che non trattiamo per semplicità), è fatto provando con la seg
 
 - si fitta il modello di regressione multipla che include Età e Scolarità (con migliore trasformazione), e Sesso
 
-- si escludono predittori che hanno $p < 0.013; (p = 0.05/3)$. Per considerare correzione Bonferroni sui predittori.
+- si escludono predittori che hanno $p < 0.017; (p = 0.05/3)$. Per considerare correzione Bonferroni sui predittori.
 
 ## I Punteggi Equivalenti
 
@@ -244,7 +244,7 @@ print(
 \begin{columns}
 \column{0.5\textwidth}
 
-Residuo: Differenza tra punteggio osservato e punteggio osservato: qui applicato al calcolo dei PE.
+Residuo: Differenza tra punteggio osservato e punteggio previsto: qui applicato al calcolo dei PE.
 
 \column{0.5\textwidth}
 ```
@@ -315,7 +315,7 @@ print(
 \begin{columns}
 \column{0.5\textwidth}
 
-I residui potrebbero essere considerati già punteggi «aggiustati» perché sono ciò che rimane del punteggio tolta l'influenza dei predittori (in questo caso ripulito dell'effetto di età)
+I residui potrebbero essere considerati già punteggi «aggiustati» perché sono ciò che rimane del punteggio tolta l'influenza dei predittori (in questo caso ripulito dall'effetto di età)
 
 \column{0.5\textwidth}
 ```

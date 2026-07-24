@@ -314,7 +314,7 @@ $SD$ deviazione standard del campione normativo.
 
 ## Trasformazione in punti z
 
-è utile perchè ci aiuta a definire percentili (parametrici).
+è utile perché ci aiuta a definire percentili (parametrici).
 
 Possiamo usarla in due modi:
 
@@ -436,7 +436,7 @@ Il t-test di Crawford & Howell (1998)[^1] è una modificazione del t-test che pe
 
 \underline{Il test funziona anche con campioni piccoli (~10 soggetti).}
 
-[^1]: in realtà il test è di Sokhal e Rohlf (1995). Crawford & Howell hanno avuto il merito di diffonderlo per I
+[^1]: in realtà il test è di Sokal e Rohlf (1995). Crawford & Howell hanno avuto il merito di diffonderlo per il
 single-case in contesto di neuropsicologia.
 
 ## t-test di Crawford & Howell
@@ -472,7 +472,7 @@ Il test di Crawford funziona bene (a livello di Errore di 1° tipo) anche per ca
 \small
 Il t-test di Crawford mantiene un errore di primo tipo costante al 5% anche per campioni molto piccoli (n=5).
 
-**Questo non vuol dire che bastano campioni piccoli, in realtà è sempre meglio avere campioni numerosi, perchè porteranno a risultati più vicini a quelli che avremmo con i valori della popolazione**
+**Questo non vuol dire che bastano campioni piccoli, in realtà è sempre meglio avere campioni numerosi, perché porteranno a risultati più vicini a quelli che avremmo con i valori della popolazione**
 
 La cosa importante è che il t-test di Crawford anche con campioni piccoli mantiene un errore di 1° tipo a livello del 5% (concretamente, per dare un esempio se una persona viene dalla popolazione dei sani, otterremo un valore sotto “cut-off” il 5% delle volte, proprio come è atteso. Nel caso dello z-score la percentuale potrebbe essere 10% o più).
 
@@ -609,11 +609,11 @@ In genere il cut-off è definito (arbitrariamente) come il valore che delimita i
 
 *Non sapendo dove si collochino le prestazioni patologiche (deficit o danno), mettiamo una soglia arbitraria che delimita il 5% più basso (area grigia), assumendo che deficit e patologia siano da qualche parte a sinistra.*
 
-## Cut-off è punti z
+## Cut-off e punti z
 
 Il punteggio -1.64 delimita il 5% dei punteggi peggiori. Indica un punteggio -1.64 Deviazioni standard sotto la media (che è 0).
 
-Talvolta viene anche usato “2 deviazioni standard”. Non è altro che un altro numero (sempre arbitrario) per delimitare preformance bassa, sempre arbitraria (ma più facile da ricordare).
+Talvolta viene anche usato “2 deviazioni standard”. Non è altro che un altro numero (sempre arbitrario) per delimitare performance bassa, sempre arbitraria (ma più facile da ricordare).
 
 
 ## Il paradosso del mucchio
@@ -668,4 +668,4 @@ Nonostante questo limite concettuale, avere una soglia decisionale ha una chiara
 - Un punteggio grezzo da solo dice poco: va confrontato con **dati normativi** rappresentativi della popolazione di riferimento.
 - Dal confronto spesso è calcolato il **percentile** di corrispondenza, ma questo approccio ha limiti.
 - Alcuni metodi tengono conto che campione e popolazione non coincidono (t-test di Crawford) e che la regressione può superare la suddivisione in fasce necessaria per avere un campione di riferimento rappresentativo.
-- Da ultimo, il percentile spesso si confronta con **soglie (o cut-off)**: queste sono speso arbitrarie, ma con una chiara utilità pragmatica nel prendere una decisione clinica.
+- Da ultimo, il percentile spesso si confronta con **soglie (o cut-off)**: queste sono spesso arbitrarie, ma con una chiara utilità pragmatica nel prendere una decisione clinica.
