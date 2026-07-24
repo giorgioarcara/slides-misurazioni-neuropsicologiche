@@ -192,6 +192,21 @@ print(
 ```
 
 ## I Punteggi Equivalenti
+**1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
+\scriptsize
+
+Il metodo prevede l'identificare la trasformazione non lineare _migliore_ dei predittori.
+Questo aspetto (che non trattiamo per semplicità), è fatto provando con la seguente sotto procedura:
+
+- per i due predittori continuo (Età e Scolarità), si provano separatamente diverse trasformazioni e si fitta una regressione semplice $Score \sim f(predittore)$. Si provano diverse trasformazioni tra un dizionario iniziale ($log$, $\sqrt{x}$, $log_{10}$, $\frac{1}{x}$, etc.)
+
+- si calcola l $R^2$ di ognuno di questi modelli e si sceglie la trasformazione 
+
+- si fitta il modello di regressione multipla che include Età e Scolarità (con migliore trasformazione), e Sesso
+
+- si escludono predittori che hanno $p < 0.013; (p = 0.05/3)$. Per considerare correzione Bonferroni sui predittori.
+
+## I Punteggi Equivalenti
 
 **1) Calcolo di punteggi aggiustati, a cui è rimosso l'effetto di età e scolarità (e sesso)**
 
@@ -229,7 +244,7 @@ print(
 \begin{columns}
 \column{0.5\textwidth}
 
-Differenza tra punteggio previsto e punteggio osservato — lo stesso concetto di \textbf{residuo} appena visto, qui applicato al calcolo dei PE.
+Residuo: Differenza tra punteggio osservato e punteggio osservato: qui applicato al calcolo dei PE.
 
 \column{0.5\textwidth}
 ```
@@ -472,3 +487,22 @@ print(
 ## I Punteggi Equivalenti
 
 Proviamo insieme a fare un ipotetico utilizzo di punteggi equivalenti.
+
+# Alcune note
+
+## Il metodo dei Punteggi Equivalenti è automatizzabile
+
+Per come è pensato il metodo non richiede direttamente un utente visto che non ci sono scelte che deve fare l'operatore.
+
+Si veda Arcara (2024), per un'implementazione in R.
+
+## Il metodo dei Punteggi Equivalenti non include check su qualità del fit
+
+Suggerisco di aggiungere un check che il fit sia adeguato, e di aggiustare "manualmente" se necessario
+_(work in progress)_ .
+
+## Il metodo dei Punteggi Equivalenti è il più diffuso
+
+Nella neuropsicologia clinica italiana (soprattutto dell'adulto, ma anche del bambino). Quello dei PE è considerato uno standard di qualità ed è certamente il più diffuso.
+
+
