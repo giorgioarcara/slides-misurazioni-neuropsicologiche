@@ -16,13 +16,21 @@ header-includes:
   \setbeamertemplate{footline}[frame number]
   \usepackage{tikz}
   \usetikzlibrary{positioning, arrows.meta}
+execute:
+  echo: false
+  warning: false
+  message: false
 
 ---
 
 <!--
-BOZZA INIZIALE: contenuto spostato dal blocco 2 (02-Soglie_e_dati_normativi.qmd) durante la
-ristrutturazione di quel blocco. Da definire meglio con l'utente in una sessione dedicata
-(struttura, eventuali slide di raccordo, contenuti aggiuntivi da altre fonti).
+VERSIONE R: stessa struttura/testo di 03-Punteggi_Equivalenti.qmd, ma le 12 figure sono generate
+a runtime da codice R (chunk nascosti) invece di essere PNG statiche precaricate. Riusa le funzioni
+del metodo di regressione di Capitani (adjscores_C1987) e del calcolo degli Equivalent Scores (ES,
+tolLimits.obs) copiate in R_functions/ da Reg-Method-Norm-Data-CodeApp-main/Tutorial/R_functions.
+Dataset normativo simulato ad-hoc con solo un effetto lineare NEGATIVO dell'età (più l'età aumenta,
+più la prestazione peggiora) su richiesta esplicita dell'utente — a differenza delle PNG originali,
+che mostravano una relazione positiva puramente illustrativa. Bozza da confrontare con l'originale.
 -->
 
 <!-- the section below is shown only if rendering is beamer from latex. (and format:revealjs is commmented) -->
@@ -43,7 +51,66 @@ ristrutturazione di quel blocco. Da definire meglio con l'utente in una sessione
 ```
 :::
 
+```{r setup}
+#| include: false
+library(car)
+library(ggplot2)
+Sys.setlocale("LC_ALL", "en_US.UTF-8")
 
+funcs_dir <- "R_functions"
+source(file.path(funcs_dir, "formula_transf_text.R"))
+source(file.path(funcs_dir, "model_transf_text.R"))
+source(file.path(funcs_dir, "adj_scores_transf_text.R"))
+source(file.path(funcs_dir, "adjscores_C1987_v2.R"))
+source(file.path(funcs_dir, "tolLimits.obs.R"))
+source(file.path(funcs_dir, "ES.R"))
+
+COL_DARK   <- "#23373B"
+COL_ACCENT <- "#EB811B"
+COL_RED    <- "#c0392b"
+
+theme_clean <- function(base = 11) {
+  theme_minimal(base_size = base) +
+    theme(
+      plot.background  = element_rect(fill = "white", colour = NA),
+      panel.background = element_rect(fill = "white", colour = NA),
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_line(colour = "grey90"),
+      axis.title       = element_text(size = base - 1),
+      axis.text        = element_text(size = base - 2),
+      plot.title       = element_text(size = base, face = "bold"),
+      legend.position  = "none"
+    )
+}
+
+# Dati normativi simulati: SOLO un effetto lineare negativo dell'età
+# (più l'età aumenta, più il punteggio peggiora). Education e Sex sono
+# simulati senza un vero effetto, cosicché la selezione stepwise
+# Bonferroni-corretta del metodo di Capitani li scarti naturalmente.
+set.seed(123)
+n <- 100
+Age <- round(runif(n, 30, 85))
+Education <- round(runif(n, 3, 18))
+Sex <- sample(c("M", "F"), n, replace = TRUE)
+Score <- round(60 - 0.4 * Age + rnorm(n, 0, 5), 1)
+dat <- data.frame(ID = 1:n, Age = Age, Education = Education, Sex = Sex, Score = Score)
+
+res <- adjscores_C1987(df = dat, dep = "Score", age = "Age", edu = "Education", sex = "Sex",
+                        dep.range = c(min(dat$Score) - 5, max(dat$Score) + 5))
+dat <- res$new.df
+dat$FITTED <- fitted(res$lm.model)
+
+es_res <- ES(adjscores = dat$ADJ_SCORES)
+tl <- tolLimits.obs(nrow(dat))
+z1 <- qnorm(tl$oTL / nrow(dat))
+
+curve_df <- data.frame(x = seq(-4, 4, length.out = 400))
+curve_df$y <- dnorm(curve_df$x)
+
+idx_resid <- which(dat$RESIDUALS < quantile(dat$RESIDUALS, 0.1) & dat$Age > 45 & dat$Age < 70)[1]
+idx_adj <- which(dat$Age > 70 & dat$RESIDUALS < quantile(dat$RESIDUALS, 0.2) &
+                    seq_len(nrow(dat)) != idx_resid)[1]
+```
 
 # I Punteggi Equivalenti
 
@@ -76,9 +143,22 @@ Il calcolo dei Punteggi Equivalenti è suddiviso in vari step:
 La distribuzione dei punteggi grezzi include persone di diversa età.
 
 \column{0.5\textwidth}
-\begin{figure}
-\includegraphics[scale=0.25]{Figures/raw_scores_distr_normative_data.png}
-\end{figure}
+```
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3.4
+#| out-width: "95%"
+print(
+  ggplot(dat, aes(x = Score)) +
+    geom_histogram(bins = 12, fill = "grey72", colour = "white") +
+    labs(title = "Distribuzione dei punteggi grezzi\nnei dati normativi",
+         x = "Punteggio", y = "Frequenza") +
+    theme_clean()
+)
+```
+
+```{=latex}
 \end{columns}
 ```
 
@@ -93,9 +173,21 @@ La distribuzione dei punteggi grezzi include persone di diversa età.
 Effetto dell'età
 
 \column{0.5\textwidth}
-\begin{figure}
-\includegraphics[scale=0.25]{Figures/age_effect.png}
-\end{figure}
+```
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3.4
+#| out-width: "95%"
+print(
+  ggplot(dat, aes(x = Age, y = Score)) +
+    geom_point(colour = COL_DARK, alpha = 0.6, size = 1.8) +
+    labs(title = "Effetto dell'età", x = "Età", y = "Punteggio") +
+    theme_clean()
+)
+```
+
+```{=latex}
 \end{columns}
 ```
 
@@ -110,9 +202,22 @@ Effetto dell'età
 Effetto dell'età e retta di regressione
 
 \column{0.5\textwidth}
-\begin{figure}
-\includegraphics[scale=0.25]{Figures/age_effect_regr_line.png}
-\end{figure}
+```
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3.4
+#| out-width: "95%"
+print(
+  ggplot(dat, aes(x = Age, y = Score)) +
+    geom_point(colour = COL_DARK, alpha = 0.6, size = 1.8) +
+    geom_line(aes(y = FITTED), colour = COL_ACCENT, linewidth = 1) +
+    labs(title = "Effetto dell'età e retta di regressione", x = "Età", y = "Punteggio") +
+    theme_clean()
+)
+```
+
+```{=latex}
 \end{columns}
 ```
 
@@ -127,9 +232,29 @@ Effetto dell'età e retta di regressione
 Differenza tra punteggio previsto e punteggio osservato — lo stesso concetto di \textbf{residuo} appena visto, qui applicato al calcolo dei PE.
 
 \column{0.5\textwidth}
-\begin{figure}
-\includegraphics[scale=0.25]{Figures/age_effect_regr_line_residual.png}
-\end{figure}
+```
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3.4
+#| out-width: "95%"
+pt_resid <- dat[idx_resid, ]
+print(
+  ggplot(dat, aes(x = Age, y = Score)) +
+    geom_point(colour = COL_DARK, alpha = 0.6, size = 1.8) +
+    geom_line(aes(y = FITTED), colour = COL_ACCENT, linewidth = 1) +
+    geom_segment(data = pt_resid, aes(x = Age, xend = Age, y = FITTED, yend = Score),
+                 colour = COL_RED, linewidth = 0.9,
+                 arrow = arrow(ends = "both", length = unit(0.08, "inches"), type = "closed")) +
+    geom_point(data = pt_resid, aes(x = Age, y = Score), colour = COL_RED, size = 3) +
+    annotate("text", x = pt_resid$Age + 3, y = (pt_resid$FITTED + pt_resid$Score) / 2,
+             label = "residuo", colour = COL_RED, size = 4, hjust = 0) +
+    labs(title = "Residuo di un soggetto", x = "Età", y = "Punteggio") +
+    theme_clean()
+)
+```
+
+```{=latex}
 \end{columns}
 ```
 
@@ -143,10 +268,27 @@ Differenza tra punteggio previsto e punteggio osservato — lo stesso concetto d
 
 Calcolo dei residui di tutti i soggetti dei dati normativi
 
+\emph{Non si correggono risultati che ottengono il punteggio massimo o minimo}
+
+
 \column{0.5\textwidth}
-\begin{figure}
-\includegraphics[scale=0.25]{Figures/age_effect_regr_line_allresidual.png}
-\end{figure}
+```
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3.4
+#| out-width: "95%"
+print(
+  ggplot(dat, aes(x = Age, y = Score)) +
+    geom_point(colour = COL_DARK, alpha = 0.6, size = 1.8) +
+    geom_line(aes(y = FITTED), colour = COL_ACCENT, linewidth = 1) +
+    geom_segment(aes(xend = Age, yend = FITTED), colour = COL_DARK, alpha = 0.5) +
+    labs(title = "Residui di tutti i soggetti", x = "Età", y = "Punteggio") +
+    theme_clean()
+)
+```
+
+```{=latex}
 \end{columns}
 ```
 
@@ -161,9 +303,21 @@ Calcolo dei residui di tutti i soggetti dei dati normativi
 I residui potrebbero essere considerati già punteggi «aggiustati» perché sono ciò che rimane del punteggio tolta l'influenza dei predittori (in questo caso ripulito dell'effetto di età)
 
 \column{0.5\textwidth}
-\begin{figure}
-\includegraphics[scale=0.25]{Figures/residual_distr_normative_data.png}
-\end{figure}
+```
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3.4
+#| out-width: "95%"
+print(
+  ggplot(dat, aes(x = RESIDUALS)) +
+    geom_histogram(bins = 12, fill = "grey72", colour = "white") +
+    labs(title = "Distribuzione dei residui", x = "Residuo", y = "Frequenza") +
+    theme_clean()
+)
+```
+
+```{=latex}
 \end{columns}
 ```
 
@@ -175,12 +329,25 @@ I residui potrebbero essere considerati già punteggi «aggiustati» perché son
 \begin{columns}
 \column{0.5\textwidth}
 
-Nel metodo dei PE, i punteggi aggiustati sono riportati in una scala simile a quella originale (tecnicamente, aggiungendo l'intercetta al residuo)
+Nel metodo dei PE, i punteggi aggiustati sono riportati in una scala simile a quella originale (tecnicamente, si calcola valore previsto quando tutte le covariate sono al valore medio e poi si aggiunge il residuo)
 
 \column{0.5\textwidth}
-\begin{figure}
-\includegraphics[scale=0.25]{Figures/adj_scores_distr_normative_data.png}
-\end{figure}
+```
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3.4
+#| out-width: "95%"
+print(
+  ggplot(dat, aes(x = ADJ_SCORES)) +
+    geom_histogram(bins = 12, fill = "grey72", colour = "white") +
+    labs(title = "Distribuzione dei punteggi aggiustati",
+         x = "Punteggio aggiustato", y = "Frequenza") +
+    theme_clean()
+)
+```
+
+```{=latex}
 \end{columns}
 ```
 
@@ -197,9 +364,25 @@ Si calcola il PE = 0 come \textbf{limite di tolleranza interno unidirezionale no
 Indica il punteggio che non verrà ottenuto da più del 5\% della popolazione (quindi il cut-off, a livello di popolazione).
 
 \column{0.5\textwidth}
-\begin{figure}
-\includegraphics[scale=0.25]{Figures/limiti_tolleranza.png}
-\end{figure}
+```
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3.4
+#| out-width: "95%"
+print(
+  ggplot(curve_df, aes(x, y)) +
+    geom_line(colour = COL_DARK, linewidth = 1) +
+    geom_segment(x = z1, xend = z1, y = 0, yend = dnorm(z1), colour = COL_RED, linewidth = 1) +
+    annotate("text", x = z1, y = -0.025, label = "PE = 0", colour = COL_RED, size = 4) +
+    coord_cartesian(clip = "off") +
+    labs(title = "Limite di tolleranza (PE = 0)", x = "Abilità sottostante (z)", y = "Densità") +
+    theme_clean() +
+    theme(plot.margin = margin(5.5, 5.5, 16, 5.5))
+)
+```
+
+```{=latex}
 \end{columns}
 ```
 
@@ -214,9 +397,31 @@ Indica il punteggio che non verrà ottenuto da più del 5\% della popolazione (q
 In riferimento all'ipotetica distribuzione dell'abilità sottostante, si trova anche il PE = 4 e poi si divide lo spazio tra PE = 0 e PE = 4 in intervalli equispaziati (equispaziati rispetto all'abilità sottostante).
 
 \column{0.5\textwidth}
-\begin{figure}
-\includegraphics[scale=0.25]{Figures/PE_distr.png}
-\end{figure}
+```
+
+```{r}
+#| fig-width: 4.6
+#| fig-height: 3.4
+#| out-width: "100%"
+zcuts <- c(z1, z1 * 2 / 3, z1 / 3, 0)
+bounds <- c(min(curve_df$x), zcuts, max(curve_df$x) - 2.5)
+zmids <- (bounds[-1] + bounds[-length(bounds)]) / 2
+pe_labels <- paste0("PE=", 0:4)
+print(
+  ggplot(curve_df, aes(x, y)) +
+    geom_line(colour = COL_DARK, linewidth = 1) +
+    geom_segment(data = data.frame(x = zcuts), aes(x = x, xend = x, y = 0, yend = dnorm(x)),
+                 inherit.aes = FALSE, colour = COL_RED, linewidth = 0.8) +
+    annotate("text", x = zmids, y = c(-0.025, -0.055, -0.025, -0.055, -0.025),
+             label = pe_labels, colour = COL_RED, size = 3.3) +
+    coord_cartesian(clip = "off") +
+    labs(title = "Distribuzione delle classi PE (0-4)", x = "Abilità sottostante (z)", y = "Densità") +
+    theme_clean() +
+    theme(plot.margin = margin(5.5, 5.5, 24, 5.5))
+)
+```
+
+```{=latex}
 \end{columns}
 ```
 
@@ -227,24 +432,43 @@ In riferimento all'ipotetica distribuzione dell'abilità sottostante, si trova a
 ```{=latex}
 \begin{columns}
 \column{0.5\textwidth}
-
+\small
 1) Calcoliamo il \textbf{punteggio aggiustato} tramite confronto con tabella o applicazione della formula di regressione
 
 2) Confronto con tabella di corrispondenza punteggio aggiustato -- Punteggio equivalente
 
 Non si correggono risultati che ottengono il punteggio massimo o minimo.
 
+\column{0.5\textwidth}
+```
+
+```{r}
+#| fig-width: 4
+#| fig-height: 3.4
+#| out-width: "95%"
+pt_adj <- dat[idx_adj, ]
+print(
+  ggplot(dat, aes(x = Age, y = Score)) +
+    geom_point(colour = COL_DARK, alpha = 0.6, size = 1.8) +
+    geom_line(aes(y = FITTED), colour = COL_ACCENT, linewidth = 1) +
+    geom_segment(data = pt_adj, aes(x = Age, xend = Age, y = FITTED, yend = Score),
+                 colour = COL_RED, linewidth = 0.9,
+                 arrow = arrow(ends = "both", length = unit(0.08, "inches"), type = "closed")) +
+    geom_point(data = pt_adj, aes(x = Age, y = Score), colour = COL_RED, size = 3) +
+    labs(title = "Calcolo di un punteggio aggiustato", x = "Età", y = "Punteggio") +
+    theme_clean()
+)
+```
+
+```{=latex}
+\end{columns}
+
+
 \textbf{Se punteggio corretto è < soglia PE = 0, allora prestazione deficitaria.}
 
-\column{0.5\textwidth}
-\begin{figure}
-\includegraphics[scale=0.25]{Figures/adj_score.png}
-\end{figure}
-\end{columns}
+
 ```
 
 ## I Punteggi Equivalenti
 
 Proviamo insieme a fare un ipotetico utilizzo di punteggi equivalenti.
-
-(vedere da articolo)
