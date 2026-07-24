@@ -38,7 +38,7 @@ header-includes:
 :::
 
 
-# Dal punteggio al dato di riferimento
+# Dal punteggio all'inferenza
 
 ## Significato dei punteggi
 
@@ -60,7 +60,7 @@ Supponiamo di somministrare il MoCA (Montreal Cognitive Assessment) a un pazient
 
 I punteggi grezzi sono poco informativi: il loro range è spesso arbitrario, e un punteggio alto o basso dipende anche da quanto il test è difficile (o facile).
 
-\textbf{Per trarre informazioni utili, i punteggi si confrontano con dati di riferimento}, seguendo tipicamente **tre step**: dal punteggio grezzo al **percentile** (la percentuale di popolazione che ottiene quel punteggio), fino al confronto con una **soglia**.
+Per trarre informazioni utili, si seguono tipicamente **tre step**: dal punteggio grezzo al **percentile** (la percentuale nel gruppo di riferimento che ottiene quel punteggio), fino al confronto con una **soglia**.
 
 ## I tre step per interpretare un punteggio
 
@@ -80,11 +80,11 @@ I punteggi grezzi sono poco informativi: il loro range è spesso arbitrario, e u
 \end{center}
 ```
 
-Vedremo questi tre step uno alla volta: cosa sono i **dati normativi** usati come riferimento, come si calcola un **percentile**, e infine come (e perché) si arriva a una **soglia** decisionale.
+Vedremo questi tre step uno alla volta: cosa sono i **dati normativi** usati come riferimento, come si calcola un **percentile**, e infine come (e perché) si utilizzano **soglie** per aiutare l'interpretazione (e le decisioni cliniche).
 
 ## Esempio di soglie riportate in tabelle
 
-Spesso il risultato finale di questo percorso è riportato direttamente in tabelle, indipendentemente dal metodo usato per calcolarlo. Di recente sono sempre più diffusi software che trasformano i punteggi e li confrontano automaticamente con le soglie.
+Spesso il risultato finale di questo percorso è riportato direttamente in tabelle che riportano soglie, indipendentemente dal metodo usato per calcolarlo. Di recente sono sempre più diffusi software che trasformano i punteggi e li confrontano automaticamente con le soglie.
 
 ![](Figures/cutoff_humor.png){width="90%" fig-align="center"}
 \begin{flushright}
@@ -246,8 +246,10 @@ L’iniziale diffusione del \textbf{MoCA} (Nasreddine et al., 2005) in Italia, c
 ## Riepilogo: dati normativi
 
 \small
-- I dati normativi servono per stimare la prestazione attesa da un individuo, usando i dati di persone simili a lui.
+- I dati normativi servono per stimare la prestazione attesa da un individuo, usando i dati di persone simili.
+
 - Il confronto con dati normativi serve per inferire un possibile deficit (disturbo funzionale) o danno (peggioramento): il metodo usato è spesso lo stesso, cambia l'interpretazione.
+
 - Per usare bene i dati normativi occorre collocare il punteggio rispetto alla distribuzione di riferimento: il prossimo passo è proprio il calcolo del **percentile**.
 
 ## Utilizzare i dati normativi
@@ -287,7 +289,7 @@ $$
 $$
 \normalsize 
 
-Questa è la stessa quantità $k$ (moltiplicata per 100) della definizione data sopra: $P(O \le x_p) = p$.
+Questa è la stessa quantità $k$ (moltiplicata per 100) di $p$, citato prima.
 
 L’utilizzo della curva normale o l'uso di percentili non parametrici rappresentano diversi metodi per identificare i valori che delimitano queste percentuali.
 
@@ -361,7 +363,7 @@ $$
 \small
 x_k : P(O \le x_k \mid N) = k
 $$
-$x_k$ è il valore per cui ci si attende una probabilità $k$ che un punteggio $O$ sia uguale o inferiore a $x_k$, assumendo che la persona provenga da una popolazione di persone “sane” (cioè senza deficit cognitivo).
+$x_k$ è il valore per cui ci si attende una probabilità $k$ che un punteggio $O$ sia uguale o inferiore a $x_k$, assumendo che la persona provenga dalla _popolazione di persone “sane”_ (cioè senza deficit cognitivo).
 
 Infatti se la persona venisse da altre popolazioni (es. pazienti con Alzheimer) i valori attesi potrebbero essere diversi.
 
@@ -390,7 +392,7 @@ Da notare: il percentile non è di per sé una probabilità. Percentili e z-scor
 
 ## Campione o popolazione (2/3)
 
-![](Figures/normativi_percentili.png){width="50%" fig-align="center"}
+![](Figures/normativi_percentili.png){width="90%" fig-align="center"}
 
 La figura mostra tre ipotetici campioni (n=25) estratti dalla stessa popolazione: il numero indica il cut-off vero (5%) e quello ottenuto in ciascun campione, diverso ogni volta.
 
@@ -447,6 +449,15 @@ $$
 Dove $X_i$ è il punteggio del singolo individuo da testare. $\bar{X_2}$ è la media del campione normativo. $S_2$ è la Deviazione standard del campione normativo ed $N_2$ è la numerosità del campione normativo.
 Confrontando con distribuzione con $N_2-1$ gradi di libertà il risultato restituisce la probabilità (data ipotesi nulla vera) di ottenere valori di $t$ uguali o inferiori a quelli osservati (vedi codice di esempio per dettagli).
 
+## Confronto con t-test
+
+$$
+t = \frac{\bar{X_1} - \bar{X_2}}{s_p\sqrt{\frac{1}{N_1}+\frac{1}{N_2}}}
+$$
+
+\vspace{1em}
+Dove $\bar{X_1}$ e $\bar{X_2}$ sono le medie dei due campioni a confronto, $s_p$ è la deviazione standard pooled (combinata) dei due campioni, $N_1$ e $N_2$ sono le rispettive numerosità.
+Ponendo $N_1 = 1$ (un solo individuo, quindi $\bar{X_1} = X_i$) questa formula coincide esattamente con quella di Crawford & Howell vista nella slide precedente: la correzione $\frac{N_2+1}{N_2}$ non è altro che $\frac{1}{N_1}+\frac{1}{N_2}$ quando $N_1=1$.
 
 ## Note su t-test di Crawford (1/2)
 
@@ -461,9 +472,7 @@ Il test di Crawford funziona bene (a livello di Errore di 1° tipo) anche per ca
 \small
 Il t-test di Crawford mantiene un errore di primo tipo costante al 5% anche per campioni molto piccoli (n=5).
 
-**Questo non vuol dire che bastano campioni piccoli, in realtà è sempre meglio avere campioni numerosi, perchè porteranno cut-off più reali a quelli della popolazione**
-
-(Si veda simulazione in script 11_C&H_test)
+**Questo non vuol dire che bastano campioni piccoli, in realtà è sempre meglio avere campioni numerosi, perchè porteranno a risultati più vicini a quelli che avremmo con i valori della popolazione**
 
 La cosa importante è che il t-test di Crawford anche con campioni piccoli mantiene un errore di 1° tipo a livello del 5% (concretamente, per dare un esempio se una persona viene dalla popolazione dei sani, otterremo un valore sotto “cut-off” il 5% delle volte, proprio come è atteso. Nel caso dello z-score la percentuale potrebbe essere 10% o più).
 
@@ -471,7 +480,7 @@ La cosa importante è che il t-test di Crawford anche con campioni piccoli manti
 
 Il test di Crawford, così come l'uso di z-score o percentili, richiede comunque un campione di riferimento: soggetti sani, simili alla persona testata.
 
-**Spesso ci si riferisce a persone con stesso sesso, età e scolarità simili** — una scelta pragmatica, perché sono variabili note per influenzare la performance cognitiva e facili da raccogliere.
+**Spesso ci si riferisce a persone con stesso sesso, età e scolarità simili**. Questa è una scelta pragmatica, perché sono variabili note per influenzare la performance cognitiva e facili da raccogliere.
 
 ## Confronto con i dati normativi (2/2)
 
@@ -503,7 +512,7 @@ Un limite dei metodi visti finora (es. suddivisione in fasce di età/scolarità)
 Un'alternativa è **modellare direttamente** la relazione tra variabili demografiche e punteggio al test, tramite una **regressione**:
 
 $$
-\hat{Y} = b_0 + b_1 \cdot \text{Età} + b_2 \cdot \text{Scolarità} + \ldots
+\hat{Y} = b_0 + b_1 \cdot \text{Età} + b_2 \cdot \text{Scolarità} + \ldots + \epsilon
 $$
 
 \pause
@@ -657,5 +666,6 @@ Nonostante questo limite concettuale, avere una soglia decisionale ha una chiara
 
 \small
 - Un punteggio grezzo da solo dice poco: va confrontato con **dati normativi** rappresentativi della popolazione di riferimento.
-- Dal confronto nasce un **percentile**: la posizione del punteggio rispetto alla distribuzione di riferimento, tenendo conto che campione e popolazione non coincidono (t-test di Crawford) e che la regressione può superare la suddivisione in fasce.
-- Da ultimo, il percentile si confronta con una **soglia**: per definizione arbitraria (paradosso del mucchio), ma con una chiara utilità pragmatica nel prendere una decisione clinica.
+- Dal confronto spesso è calcolato il **percentile** di corrispondenza, ma questo approccio ha limiti.
+- Alcuni metodi tengono conto che campione e popolazione non coincidono (t-test di Crawford) e che la regressione può superare la suddivisione in fasce necessaria per avere un campione di riferimento rappresentativo.
+- Da ultimo, il percentile spesso si confronta con **soglie (o cut-off)**: queste sono speso arbitrarie, ma con una chiara utilità pragmatica nel prendere una decisione clinica.
