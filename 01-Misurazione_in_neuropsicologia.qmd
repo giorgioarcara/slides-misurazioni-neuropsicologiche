@@ -46,7 +46,7 @@ header-includes:
 \column{0.8\textwidth}
 
 I test neuropsicologici hanno, nella pratica clinica, alcuni scopi principali:\\
-
+\vspace{1cm}
 \begin{itemize}
 \item \textbf{Caratterizzare} i deficit cognitivi di un paziente
 \item \textbf{Pianificare} la riabilitazione
@@ -76,7 +76,7 @@ I test neuropsicologici hanno, nella pratica clinica, alcuni scopi principali:\\
 
 ## Misurazione
 
-_“We may say that measurement, in the broadest sense, is defined as the assignment of numerals to objects or event, according to rules.”_
+_“We may say that measurement, in the broadest sense, is defined as the assignment of numerals to objects or events according to rules.”_
 
 *Stevens (1946)*
 \pause
@@ -88,14 +88,14 @@ Questa è una definizione estremamente popolare che tuttora domina la neuropsico
 
 :::{.small}
 \scriptsize
-Per stevens, quello che è importante è definire poi quale è la scala di misura, che mette in relazione oggetti con i numeri.
+Per Stevens, quello che è importante è definire poi quale è la scala di misura, che mette in relazione oggetti con i numeri.
 
 \tiny
 | Scala        | Descrizione                                                                 | Esempio                         | Operazioni possibili                                   |
 |--------------|------------------------------------------------------------------------------|---------------------------------|--------------------------------------------------------|
 | **Nominale** | Classificazione in categorie senza ordine implicito                         | Sesso (M/F), Colori, Nazionalità | Conteggio, moda, verifica uguaglianza/differenza      |
-| **Ordinale** | Classificazione con ordine, ma le distanza tra categorie non hanno significato   | Posizione in una classifica, Titolo di studio | Ordinamento, mediane, percentili                     |
-| **Intervallo** | Misura con ordine e intervalli uguali, ma senza zero assoluto significativo | Temperatura in °C, IQ           | Addizione, Sottrazione,Media, Deviazione standard, z-score                |
+| **Ordinale** | Classificazione con ordine, ma le distanze tra categorie non hanno significato   | Posizione in una classifica, Titolo di studio | Ordinamento, mediane, percentili                     |
+| **Intervallo** | Misura con ordine e intervalli uguali, ma senza zero assoluto significativo | Temperatura in °C, IQ           | Addizione, Sottrazione, Media, Deviazione standard, z-score                |
 | **Rapporto** | Misura con ordine, intervalli uguali e lo zero ha un significato          |  Età, Scolarità in anni, tempi di reazione | Tutte le operazioni aritmetiche (×, ÷, +, −), z-score, rapporti|
 
 **Legenda**
@@ -116,7 +116,7 @@ Per stevens, quello che è importante è definire poi quale è la scala di misur
     \end{figure}
   \end{column}
   \begin{column}{0.5\textwidth}
-    \textbf{Esaminiamo il MoCa:}
+    \textbf{Esaminiamo il MoCA:}
     \pause
     \vspace{2em}
 
@@ -130,8 +130,8 @@ Per stevens, quello che è importante è definire poi quale è la scala di misur
 
 ## Considerazioni sulla definizione di Stevens 1/2
 
-Supponiamo di avere un tavolo quadrato che abbia il lato di 40 cm, mentre un’altro tavolo abbia il lato di 42 cm.
-Concludereste che il primo tavolo è lungo 2 cm più dell'altro? (il cm è qui usata come unità di misura)
+Supponiamo di avere un tavolo quadrato che abbia il lato di 40 cm, mentre un altro tavolo abbia il lato di 42 cm.
+Concludereste che il secondo tavolo è lungo 2 cm più del primo? (il cm è qui usata come unità di misura)
 \pause
 
 Supponiamo che ad un test di memoria una persona ottenga 40, mentre un’altra 42,
@@ -161,10 +161,10 @@ Nella scala ad intervalli si assume siano possibili operazioni come somma, sottr
 
 ## Misurazione e arbitrarietà della misura
 
-L'esempio mostrato sopra illustra come nei test neuropsicologici la scala arbitraria sembra essere critico.
-Immaginate due test di memoria: uno ha un punteggio da 0 a 50 Un altro da 0 a 10. In entrambi i casi il valore +2 ha un significato potenzialmente diverso.
+L'esempio mostrato sopra illustra come nei test neuropsicologici la scala arbitraria sembra essere critica.
+Immaginate due test di memoria: uno ha un punteggio da 0 a 50. Un altro da 0 a 10. In entrambi i casi il valore +2 ha un significato potenzialmente diverso.
 
-Un modo per "aggirare" questo problema (di scala arbitraria) è quello di riportare ad altre scale comparabili, come la deviazione standard oppure la percentuale di persone che ottengono quel punteggio. Queste due possibilità saranno trattate nelle lezioni su "dati normativi" e su "confrontare punteggi a test diversi".
+Un modo per "aggirare" questo problema (di scala arbitraria) è quello di riportare ad altre scale comparabili, come la deviazione standard oppure la percentuale di persone che ottengono quel punteggio. Queste due possibilità saranno trattate nel prossimo blocco di slides.
 
 ## Un'altra possibile definizione di misurazione da filosofia e fisica
 
@@ -181,9 +181,9 @@ Dove $\succcurlyeq$ indicano \emph{relazioni d’ordine empirico} (oggetti fisic
 \end{flushright}
 
 ## Considerazioni conclusive su misurazione 1/2
-Queste considerazioni mostrano come un atto così semplice e naturale (come ottenere e utilizzare un punteggio), nasconde delle riflessioni che meritano approfondimento e che hanno influenza sul signigicato che assumeranno questi punteggi.
+Queste considerazioni mostrano come un atto così semplice e naturale (come ottenere e utilizzare un punteggio), nasconde delle riflessioni che meritano approfondimento e che hanno influenza sul significato che assumeranno questi punteggi.
 
-La definizione di misurazione che usiamo è un po' più permissiva rispetto a definizioni più rigide (es. quella usata fisica riportata nella slide precedente) e lascia aperte alcune riflessioni.
+La definizione di misurazione che usiamo è un po' più permissiva rispetto a definizioni più rigide (es. quella usata in fisica riportata nella slide precedente) e lascia aperte alcune riflessioni.
 
 ## Considerazioni conclusive su misurazione 2/2
 
@@ -208,16 +208,16 @@ La definizione di misurazione che usiamo è un po' più permissiva rispetto a de
 
 Un concetto che emerge spesso quando si parla di misurazione, di test, di statistica è quello di oggettività.
 \pause
-I test infatti vengo spesso considerati più “oggettivi”. Vale la pena quindi approfondire questo concetto.
+I test infatti vengono spesso considerati più “oggettivi”. Vale la pena quindi approfondire questo concetto.
 
 \pause
 \vfill
 
-Definiamo qui oggettività come una proprietà che si applica ad una valutazione, ad un test, o come *l’indipedenza dell’esaminatore dal risultato*
+Definiamo qui oggettività come una proprietà che si applica ad una valutazione, ad un test, o come *l’indipendenza dell’esaminatore dal risultato*
 
 ## Oggettività
 
-\footnotesize"L’esame neuropsicologico viene spesso considerato un esame oggettivo del funzionamento cognitivo. In un’ideale gerarchia delle sorgenti d’evidenza, tale esame si collocherebbe molto più in alto rispetto alle evidenze cliniche più o meno sofisticate (self-reports, informant-based reports, interviste cliniche, rating scales, ecc.), e dovrebbe pertanto essere “promosso” a rango più elevato (al pari degli esami biochimici, radiologici, ecc.). Dopo che il clinico ha esaminato il soggetto e ha formulato le sua ipotesi preliminari, chiede agli esami strumentali di confermarle, confutarle o correggerle attraverso dati oggettivi, indipendenti sia dal giudizio dell’esaminatore e dalle sue distorsioni, sia da ogni variabile estranea all’oggetto d’indagine, in particolare dalle contaminazioni dovute alla soggettività dell’esaminato."
+\footnotesize"L’esame neuropsicologico viene spesso considerato un esame oggettivo del funzionamento cognitivo. In un’ideale gerarchia delle sorgenti d’evidenza, tale esame si collocherebbe molto più in alto rispetto alle evidenze cliniche più o meno sofisticate (self-reports, informant-based reports, interviste cliniche, rating scales, ecc.), e dovrebbe pertanto essere “promosso” a rango più elevato (al pari degli esami biochimici, radiologici, ecc.). Dopo che il clinico ha esaminato il soggetto e ha formulato le sue ipotesi preliminari, chiede agli esami strumentali di confermarle, confutarle o correggerle attraverso dati oggettivi, indipendenti sia dal giudizio dell’esaminatore e dalle sue distorsioni, sia da ogni variabile estranea all’oggetto d’indagine, in particolare dalle contaminazioni dovute alla soggettività dell’esaminato."
 
 \begin{flushright}
 \emph{Adattato da Stracciari, Bianchi, Sartori (2010); Neuropsicologia Forense}
@@ -343,7 +343,7 @@ Horn, J. L., & McArdle, J. J. (1992). A practical and theoretical guide to measu
 \end{center}
 \vspace{2em}
 
-Sebbene I modelli di IRT siano psicometricamente più rigorosi, in questo corso parlerò praticamente sempre di CTT perché la quasi totalità di test disponibili per Neuropsicologia Clinica sono sviluppati secondo questo principio (e non con IRT).
+Sebbene i modelli di IRT siano psicometricamente più rigorosi, in questo corso parlerò praticamente sempre di CTT perché la quasi totalità di test disponibili per Neuropsicologia Clinica sono sviluppati secondo questo principio (e non con IRT).
 
 ## Teoria dei test
 
@@ -367,11 +367,11 @@ Un misto di aspetti teorici e praticità
   \textbf{Classical Test Theory vs Item Response Theory}
 \end{center}
 
-L’assunto di undimensionalità, assume che:
+L’assunto di unidimensionalità, assume che:
 
 \begin{itemize}[<*>]
 \item gli Item possano essere ordinati secondo la loro difficoltà e che
-\item la probabilità di rispondere correttamente ad un Item rifletta (più o meno) alla sua difficoltà: più un item è difficile meno probabile è rispondere correttamente.
+\item la probabilità di rispondere correttamente ad un Item rifletta (più o meno) la sua difficoltà: più un item è difficile meno probabile è rispondere correttamente.
 \end{itemize}
 
 Questo è facile pensarlo per test che includano item in cui è facile gradare la difficoltà (es. esercizi di matematica), ma con un test neuropsicologico?
@@ -391,7 +391,7 @@ Questo è facile pensarlo per test che includano item in cui è facile gradare l
     \end{figure}
   \end{column}
   \begin{column}{0.5\textwidth}
-    È facile gradare gli item del moca per difficoltà?
+    È facile gradare gli item del MoCA per difficoltà?
   \end{column}
 \end{columns}
 ```
@@ -473,9 +473,9 @@ Esempi
 
 Il Fab-it (Appollonio et al., 2005) misura il generale stato delle funzioni esecutive
 
-Il SET (Dodich et al., 2015),  nel punteggio globale misura l’abilità di teoria della mente.
+Il SET (Dodich et al., 2015), nel punteggio globale misura l’abilità di teoria della mente.
 
-Linguaggio Figurato 1 in APACS (Arcara & Bambini, 2016),  il punteggio indica la capacità di andare oltre il significato letterale e di comprendere il linguaggio figurato.
+Linguaggio Figurato 1 in APACS (Arcara & Bambini, 2016), il punteggio indica la capacità di andare oltre il significato letterale e di comprendere il linguaggio figurato.
 
 ## Costrutti
 
@@ -491,7 +491,7 @@ Driving Scenes Test (Brown et al., 2005)
 NADL-F (Arcara et al., 2017) [[https://osf.io/d9jng/]{.underline}](https://osf.io/d9jng/)
 \vspace{2em}
 
-*I test ecologici molto utili per risposte concrete sulla vita quotidiana ma possono essere lunghi o poco disponibili*
+*I test ecologici sono molto utili per risposte concrete sulla vita quotidiana ma possono essere lunghi o poco disponibili*
 
 ## Costrutti a diversi livelli
 
@@ -543,13 +543,12 @@ Talvolta ci si dimentica il *perché* si vuole misurare un certo costrutto e per
 
 C’è spesso un’assunzione di fondo: che la valutazione di aspetti cognitivi (anche di base) ci può dire qualcosa su come funziona quotidianamente una persona e quindi darci informazioni sul suo comportamento in situazioni al di fuori della valutazione
 
-Si assume che ci sia una **validità ecologica**[^1] di uno specifico test (il fatto che sia andato male in questo test implica che nella vita quotidiana c’è un effetto)
+Si assume che ci sia una **validità ecologica** di uno specifico test (il fatto che sia andato male in questo test implica che nella vita quotidiana c’è un effetto)
 
-[^1]: La validità ecologica verrà trattata nel blocco su Validità e Affidabilità
 
 ## Riflessione su misurazione di specifici costrutti
 
-Assumere che i risultati del test ci dicano qualcosa sulla vita quotidiana non è sbagliato in sé, ma non dimentichiamo che (a meno che di validità ecologica comprovata da dati scientifici) questa è un’interpretazione.
+Assumere che i risultati del test ci dicano qualcosa sulla vita quotidiana non è sbagliato in sé, ma non dimentichiamo che (a meno che non vi sia validità ecologica comprovata da dati scientifici) questa è un’interpretazione.
 
 ## Alcuni test NON misurano costrutti
 
@@ -565,9 +564,13 @@ In questi casi non si può parlare di "costrutto" così come alcuni concetti (es
 
 \underline{Alcune possibili fonti:}
 
-**Kit del Neuropsicologo**: un libro prodotto dalla Società Italiana di Neuropsicologia (per i Soci) che contiene riferimenti a quasi tutti i test disponibili in Italiano (non è però aggiornatissimo ed è difficile da trovare).
+**Kit del Neuropsicologo (update)**: è in corso una versione aggiornata del "Kit del Neuropsicologo": un libro prodotto dalla Società Italiana di Neuropsicologia (per i Soci) che contiene riferimenti a quasi tutti i test disponibili in Italiano. La versione originale (di più di 10 anni fa), non è facile da trovare. Inoltre riporta solo informazioni su dati normativi e non su altro.
 
-**Libro "L'esame neuropsicologico dell'Adulto"** (a cura di Bianchi A.): contiene un capitolo che include una lista piuttosto ampia di test neuropsicologici adattati in Italiano.
+**Libro "L'esame neuropsicologico dell'Adulto"** (a cura di Bianchi A.): contiene un capitolo che include una lista piuttosto ampia di test neuropsicologici adattati in Italiano. Non è aggiornato e l'edizione è del 2008
+
+**DIMPS**: un sito di AIP che riporta test e proprietà psicometriche. Non specifico per la neuropsicologia.
+
+**IN PROGRESS**: un progetto che vedrà la presentazione a Dicembre 2025 per Psicologi di OPV che presentano i test neuropsicologici e tutte le loro proprietà psicometriche.
 
 ## Attenzione ai test tradotti senza validazione italiana
 
@@ -634,22 +637,14 @@ DV = divergent validity
 \end{columns}
 ```
 
-\footnotesize
-\begin{flushright}
-Per un approfondimento sistematico si veda anche: Mondini, S., Cappelletti, M., \& Arcara, G. (2022). \emph{Methodology in Neuropsychological Assessment: An Interpretative Approach to Guide Clinical Practice}. Taylor \& Francis.
-\end{flushright}
-
 ## Attività: cerchiamo un test neuropsicologico italiano
 
 Provate a cercare, individualmente o in piccoli gruppi, un test neuropsicologico disponibile in lingua italiana (usando le risorse viste in questa sezione, o una ricerca su Google Scholar/PubMed).
 
 \pause
 \vspace{1em}
-Per il test trovato, provate a rispondere:
+Per il test trovato, ci sono informazioni psicometriche che, secondo voi, mancano?
 
-- Sono disponibili dati normativi italiani?
-- Sono disponibili prove di validità e affidabilità (non solo dati normativi)?
-- Il test è una traduzione di un test straniero? Se sì, è stato adattato e validato per l'italiano?
 
 # Cosa valutare in un test
 
@@ -675,7 +670,6 @@ Una volta chiarito cosa intendiamo per misurazione, test e costrutto, il resto d
 <br>
 Esistono diverse classificazioni di validità e affidabilità (vedi Urbina, 2004, Essentials of Psychological Testing, per un approfondimento). Quella che segue è solo una delle possibili classificazioni.
 
-Questi tipi di validità verranno approfonditi in un blocco successivo, dedicato interamente a Validità e Affidabilità.
 
 ## Tipi di Affidabilità
 
@@ -684,22 +678,10 @@ Questi tipi di validità verranno approfonditi in un blocco successivo, dedicato
 - Affidabilità split-half
 - Consistenza Interna
 
-Esistono diverse classificazioni di affidabilità. Anche questa che sto utilizzando è una delle possibili.
+Esistono diverse classificazioni di affidabilità: questa è solo una delle possibili.
 
-## Riassunto
 
-```{=latex}
-\begin{figure}
-  \includegraphics[scale=0.3]{Figures/measurement_diagramma.png}
-\end{figure}
-
-\begin{flushright}
-  {\scriptsize (Da Mondini, Cappelletti, Arcara, 2022)}
-\end{flushright}
-
-\textbf{Costrutto}: Concetto psicologico non osservabile direttamente
-
-```
+## Considerazione conclusiva
 
 \vspace{1em}
 \pause
