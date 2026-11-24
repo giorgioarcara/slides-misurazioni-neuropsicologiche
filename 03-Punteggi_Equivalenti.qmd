@@ -45,7 +45,7 @@ che mostravano una relazione positiva puramente illustrativa. Bozza da confronta
 
 \vspace*{7cm}
 \includegraphics[scale=0.15]{Figures/LogoSanCamilloIRCCS_Unipd_alpha.png}
-\hfill \includegraphics[scale=0.15]{Figures/CC_license_3_0.png}
+\hfill \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{\includegraphics[scale=0.15]{Figures/CC_BY-NC-SA.png}}\hspace{0.4em}{\tiny CC BY-NC-SA 4.0}
 }
 \maketitle
 ```
